@@ -9,7 +9,7 @@ For this project, we got to create a hypothetical client, in our case the NYPD, 
 
 Initially, we cleaned the data by removing outliers of negative or extremely high turnstile counts. In order to get an initial idea of any patterns in the data, we calculated daily total entries per station per week for a small 4 week set of data. 
 
-![5thstgraph]({{ site.baseurl }}/images/5-ave-59-st.png =500x "4 week 5th ave-59th st")
+![5th st graph](/images/5-ave-59-st.png =500x "4 week 5th ave-59th st")
 
 Next, we filtered the data to only look at exits between the hours of 8pm and 4am. In order to make the data more intuitive, we also adjusted the dates on the dta that fell between midnight and 4am to belong to the previous day. For example, midnight-4am Saturday is considered part of Friday night. 
 
@@ -32,10 +32,10 @@ Thirty Third St
 These could be locations with busier nightlife, so it might be cool to compare with Uber/Taxi data or noise complaints to get a more complete picture of what's happening there. So, to the hypothetical NYPD client, perhaps these are the locations to be a little more aware of. Though since some of these locations don't really have much traffic in general, well, maybe not.
 
 We also made a cool scatter graph!  
-![scatter]({{ site.baseurl }}/images/mtascatter-839 "Weekend over weekday scatter")
+![scatter](/images/mtascatter-839 "Weekend over weekday scatter")
 
 It's a little hard to see the x=y line, so I might fiddle around with the graph a bit more later.
 
 Additionally, we thought it'd be cool do do a quick sketch of a potential user interface for this project. Although we haven't had a chance to look at any additional data sets, this map shows what we might be able to generate down the line. It includes an overlay of the turnstile hotspot data with some lovely icons, drawn by yours truly, indicating certain misdemeanors, sound violations, or areas where there is a predominance of taxi/Uber data relative to subway data.
 
-![drawn_map]({{ site.baseurl }}/images/Sketches-820.jpg "Rough sketch of possible map overlays" =500x)
+![drawn map](/images/Sketches-820.jpg "Rough sketch of possible map overlays" =500x)
