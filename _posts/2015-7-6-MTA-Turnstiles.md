@@ -5,13 +5,13 @@ title: Riding on Trains at Night
 
 The first week of Metis was mostly spent working on a project to analyze the movement of New Yorkers through [MTA turnstile](http://web.mta.info/developers/turnstile.html) data. 
 
-For this project, we got to create a hypothetical client, in our case the NYPD, and a proposal to show what we could do if they hired us. For our proposal, we worked to see if there were certain stations that were particularly active during the evening hours on the weekends. This could potentially result in the deployment of police to more optimal locations in order to cut down on noise disturbances, drunk and dissorderly offences, etc.
+For this project, we got to create a hypothetical client, in our case the NYPD, and a proposal to show what we could do if they hired us. For our proposal, we worked to see if there were certain stations that were particularly active during the evening hours on the weekends. This could potentially result in the deployment of police to more optimal locations in order to cut down on noise disturbances, drunk and disorderly offences, etc.
 
 Initially, we cleaned the data by removing outliers of negative or extremely high turnstile counts. In order to get an initial idea of any patterns in the data, we calculated daily total entries per station per week for a small 4 week set of data. 
 
 ![5th st graph](../images/5-ave-59-st.png "4 week 5th ave-59th st")
 
-Next, we filtered the data to only look at exits between the hours of 8pm and 4am. In order to make the data more intuitive, we also adjusted the dates on the dta that fell between midnight and 4am to belong to the previous day. For example, midnight-4am Saturday is considered part of Friday night. 
+Next, we filtered the data to only look at exits between the hours of 8pm and 4am. In order to make the data more intuitive, we also adjusted the dates on the data that fell between midnight and 4am to belong to the previous day. For example, midnight-4am Saturday is considered part of Friday night. 
 
 From here, we could get average nighttime ridership per day of the week, and then separate and aggregate these to achieve average nightly ridership for week days and week ends. Additionally, we decided to exclude Sundays and Thursdays from either count, as Sundays had very low ridership in general and Thursdays could be considered either a weekday or a weekend since people often go out more on Thursdays than on the first three days of the week, but less than on the "weekend" nights of Friday and Saturday.
 
