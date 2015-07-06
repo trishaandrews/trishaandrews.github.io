@@ -16,18 +16,18 @@ Next, we filtered the data to only look at exits between the hours of 8pm and 4a
 From here, we could get average nighttime ridership per day of the week, and then separate and aggregate these to achieve average nightly ridership for week days and week ends. Additionally, we decided to exclude Sundays and Thursdays from either count, as Sundays had very low ridership in general and Thursdays could be considered either a weekday or a weekend since people often go out more on Thursdays than on the first three days of the week, but less than on the "weekend" nights of Friday and Saturday.
 
 In general, the stations with the most mean nightly exits, for both weekdays and weekends were:  
-14th St - Union Sq  
-34th St - Penn Station  
-42nd St - Grand Central 
-W 4th St  
-42nd St - Port Authority 
+- 14th St - Union Sq  
+- 34th St - Penn Station  
+- 42nd St - Grand Central 
+- W 4th St  
+- 42nd St - Port Authority 
  
 However, some stations with lower volume had a higher proportion of exits on weeknights versus weekends. These included:  
-51st Street  
-East Broadway  
-Thirty Third St  
-14th Street  
-14th St - Union Sq  
+- 51st Street  
+- East Broadway  
+- Thirty Third St  
+- 14th Street  
+- 14th St - Union Sq  
 
 These could be locations with busier nightlife, so it might be cool to compare with Uber/Taxi data or noise complaints to get a more complete picture of what's happening there. So, to the hypothetical NYPD client, perhaps these are the locations to be a little more aware of. Though since some of these locations don't really have much traffic in general, well, maybe not.
 
@@ -38,4 +38,4 @@ It's a little hard to see the x=y line, so I might fiddle around with the graph 
 
 Additionally, we thought it'd be cool do do a quick sketch of a potential user interface for this project. Although we haven't had a chance to look at any additional data sets, this map shows what we might be able to generate down the line. It includes an overlay of the turnstile hotspot data with some lovely icons, drawn by yours truly, indicating certain misdemeanors, sound violations, or areas where there is a predominance of taxi/Uber data relative to subway data.
 
-![drawn map](../images/Sketches-820.jpg=500x "Rough sketch of possible map overlays")
+![drawn map](../images/Sketches-820.jpg "Rough sketch of possible map overlays")
