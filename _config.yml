@@ -21,7 +21,7 @@ description: "»Life by Numbers« is a blog documenting my journey towards becom
 
 # This URL is the main adresse. Don't include a slash at the end.
 #
-url: "trishaandrews.com"
+url: 
 baseurl: ""
 
 # This is for the editing function in _/includes/improve_content.html
