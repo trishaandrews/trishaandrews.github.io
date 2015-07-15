@@ -7,6 +7,6 @@ Happy Independence Day! I just finished my first week of Metis, and decided to t
 
 
 
-## Other Post Formats
+
 {: .t60 }
 {% include list-posts.html tag='post format' %}
