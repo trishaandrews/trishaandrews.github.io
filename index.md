@@ -6,9 +6,9 @@
 #
 layout: frontpage
 header:
-    title: "Trisha Andrews, \n Life by Numbers"
+    title: "Life by Numbers: \nAdventures in Data Science"
     image_fullwidth: "caffein_small2.jpg"
-    caption: "photo credit Stefan Eberhard"
+    caption: "photo credit: Stefan Eberhard"
     caption_url: http://www.eberhardphotography.com/
 widget-1:
     title: "Blog & Portfolio"
