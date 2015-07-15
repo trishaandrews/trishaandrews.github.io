@@ -1,5 +1,9 @@
 - name: GitHub
   url: http://github.com/trishaandrews
   class: icon-github
-  title: Code
+  title: Code on GitHub
 
+- name: LinkedIn
+  url: https://www.linkedin.com/in/trishaandrews
+  class: icon-linkedin
+  title: LinkedIn Profile
