@@ -6,13 +6,12 @@
 #
 layout: frontpage
 header:
-    title: "Life by Numbers:
-    title: Adventures in Data Science"
+    title: "Life by Numbers: Adventures in Data Science"
     image_fullwidth: "caffein_small2.jpg"
     caption: "photo credit: Stefan Eberhard"
     caption_url: http://www.eberhardphotography.com/
 widget-1:
-    title: "Blog & Portfolio"
+    title: "Data Science Blog"
     url: './blog/'
     text: 'Read about my projects at Metis'
     image: notebook.jpg
