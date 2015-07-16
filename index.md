@@ -6,7 +6,8 @@
 #
 layout: frontpage
 header:
-    title: "Life by Numbers: \nAdventures in Data Science"
+    title: "Life by Numbers:
+    title: Adventures in Data Science"
     image_fullwidth: "caffein_small2.jpg"
     caption: "photo credit: Stefan Eberhard"
     caption_url: http://www.eberhardphotography.com/
