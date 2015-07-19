@@ -3,7 +3,7 @@ layout: page
 subheadline: A look at New York MTA data
 title: Riding on Trains at Night
 author: Trisha
-teaser: I spent my first week of Metis working on a project to analyze the movement of New Yorkers through ![MTA turnstile](http://web.mta.info/developers/turnstile.html) data.
+teaser: I spent my first week of Metis working on a project to analyze the movement of New Yorkers through <a href= 'http://web.mta.info/developers/turnstile.html'>MTA turnstile</a> data.
 --- 
 
 For this project, we worked in small groups to create a hypothetical client, in our case the NYPD, and then present a proposal to show why they should hire us to work on data for them. Our main question was to see if there were certain MTA stations that were particularly active during the evening hours on the weekends as opposed to weeknights. As well as the common tourist areas, we suspected that we might be able to find some nightlife and club areas reflected in people's travel patterns. This could potentially result in the deployment of police to more optimal locations in order to cut down on noise disturbances, drunk and disorderly offences, etc.
