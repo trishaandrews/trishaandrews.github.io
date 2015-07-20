@@ -38,7 +38,7 @@ urlimg: "http://trishaandrews.github.io/images/"
 
 
 # Logo size is 600x80 pixels
-logo: "/images/trisha_photo.JPG"
+logo: "logo.resized.PNG"
 
 
 # Paginates all X entries
