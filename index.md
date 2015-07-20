@@ -3,10 +3,11 @@
 # Use the widgets beneath and the content will be
 # inserted automagically in the webpage. To make
 # this work, you have to use › layout: frontpage
+# title: "Life by Numbers: Adventures in Data Science"
 #
+
 layout: frontpage
 header:
-    title: "Life by Numbers: Adventures in Data Science"
     image_fullwidth: "caffein_small2.jpg"
     caption: "photo credit: Stefan Eberhard"
     caption_url: http://www.eberhardphotography.com/
