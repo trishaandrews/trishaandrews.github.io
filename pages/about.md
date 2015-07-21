@@ -1,16 +1,15 @@
 ---
 layout: page
 title: "About"
-subheadline: ""
+subheadline: "Get to know Trisha Andrews"
 show_meta: false
-teaser: "Since years I am programming and designing websites. I love to work with open source tools and learn via code from others. This time I want to try to give something back..."
+teaser: "Get to know more about me, your friendly neighborhood data scientist and blogger"
 permalink: "/about/"
-header:
-    image_fullwidth: "header_drop.jpg"
+#header:
+#    image_fullwidth: "header_drop.jpg"
 ---
-...and learn at the same time.
 
-*Feeling Responsive* is my first theme which I let into the world. It's built on work and knowledge of others. While I am still designing it, you read about whats behind this theme in the – *hopefully* – near future.
+
 
 
 ## Features
@@ -39,13 +38,10 @@ Please make *Feeling Responsive* yours and if you like it, please link back to m
 Yours sincerelly, [Moritz »mo.« Sauer][7]
 
 
- [1]: http://mademistakes.com/about/
+ [1]: https://www.youtube.com/watch?v=JJJoUb4wOeU
  [2]: http://mademistakes.com/work/jekyll-themes/
  [3]: http://automattic.com/
  [4]: http://alistapart.com/
  [5]: http://www.smashingmagazine.com/
  [6]: https://github.com/
  [7]: http://sauer.io
- [8]: #
- [9]: #
- [10]: #
