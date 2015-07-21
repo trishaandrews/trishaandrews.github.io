@@ -70,7 +70,7 @@
     
 - title: About
   url: "/about/"
-  side left
+  side: left
 
 - title: "Search"
   url: "/search/"
