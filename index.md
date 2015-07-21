@@ -16,5 +16,10 @@ widget-1:
     url: './blog/'
     text: 'Read about my projects at Metis'
     image: notebook.jpg
+widget-2:
+    title: "About Me"
+    url: '/about/'
+    text: "Everything you wanted to know about me, your resident data scientist and blogger"
+    image: trisha_photo.JPG
 ---
 
