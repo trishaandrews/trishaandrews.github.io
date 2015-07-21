@@ -8,9 +8,9 @@
 
 layout: frontpage
 header:
-    image_fullwidth: "caffein_small2.jpg"
-    caption: "photo credit: Stefan Eberhard"
-    caption_url: http://www.eberhardphotography.com/
+    image_fullwidth: rock_piles2.jpg #"caffein_small2.jpg"
+    #caption: "photo credit: Stefan Eberhard"
+    #caption_url: http://www.eberhardphotography.com/
 widget-1:
     title: "Data Science Blog"
     url: './blog/'
