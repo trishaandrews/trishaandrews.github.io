@@ -8,7 +8,7 @@
 
 layout: frontpage
 header:
-    image_fullwidth: purple_flowers.jpg #rock_piles2.jpg #"caffein_small2.jpg"
+    image_fullwidth: rock_piles2.jpg # purple_flowers.jpg "caffein_small2.jpg"
     #caption: "photo credit: Stefan Eberhard"
     #caption_url: http://www.eberhardphotography.com/
 widget-1:
