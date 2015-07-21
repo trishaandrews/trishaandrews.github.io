@@ -4,7 +4,7 @@ title:  "Crouching Tiger, Hidden Data (Part I: Web Scraping)"
 subheadline:  "Investigating Foreign Films in US Markets"
 author: Trisha
 teaser: "The first step in answering any question involves getting some data. In this case, that meant web scraping."
-permalink: "/blog/Web-Scraping"
+permalink: "/blog/Web-Scraping/"
 ---
 
 **All of the code mentioned in this post can be found on my [github repo](https://github.com/trishaandrews/movie_analysis), specifically in the `scrape_mojo.py` file.**  
