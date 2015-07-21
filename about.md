@@ -8,7 +8,7 @@ permalink: "/about/"
 #header:
 #    image_fullwidth: "header_drop.jpg"
 ---
-![my photo](./images/trisha_photo.JPG =300x300)  
+<img src="./images/trisha_photo.JPG" alt="My photo" style="width: 300px;">  
 I'm Trisha, and I like numbers, robots, and music. In order to further the first (and possibly second) of those passions, I've moved to NYC for the summer to attend an immersive data science bootcamp at Metis. I'm here to fill in the gaps in my statistical knowledge while broadening and reinforcing my knowledge of coding and machine learning.  
 
 Prior to this summer, I was living in Colorado, where I had originally moved in order to attend Colorado College (aka CC). At CC, I got a BA in computer science and nearly double majored in chemistry, but I became increasingly involved in my violin and other ensembles, so I decided to pick up a music minor instead. My favorite CS class was machine learning, and I did an internship at Texas Tech University after my junior year, where I focused on knowledge representation and reasoning for mobile autonomous robots, and, back at CC, my senior year project made use of a ROS Turtlebot2 robot.  
