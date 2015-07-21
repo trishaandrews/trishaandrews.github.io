@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Crouching Tiger, Hidden Data (Part I: Web Scraping)"
-subheadline:  "Investigating Foreign Films in US Markets"
+subheadline:  "Investigating foreign films in US markets"
 author: Trisha
 teaser: "The first step in answering any question involves getting some data. In this case, that meant web scraping."
 ---
