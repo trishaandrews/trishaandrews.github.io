@@ -31,15 +31,15 @@ a:visited {
 }
 
 a:hover {
-        color: darken( $primary-link-color, 10% );
+        color: darken( $primary-color, 10% );
 }
 
 a:focus {
-        color: lighten( $primary-link-color, 20% );
+        color: lighten( $primary-color, 20% );
 }
 
 a:active {
-        color: darken( $primary-link-color, 20% );
+        color: darken( $primary-color, 20% );
 }
 
 
@@ -144,7 +144,7 @@ figcaption a,
 figcaption a:hover,
 .masthead-caption a:hover {
     border-bottom: 2px solid $primary-color;
-    color: $primary-link-color;
+    color: $primary-color;
 }
 .masthead-caption {
     padding-right: 10px;

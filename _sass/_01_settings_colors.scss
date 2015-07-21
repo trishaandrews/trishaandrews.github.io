@@ -26,7 +26,7 @@ $body-bg: 			#fdfdfd;
 ------------------------------------------------------------------- */
 
 $ci-1: #5c334d;		// purple, 693957 slightly lighter purple. 334D5Cdark turquoise
-$ci-2: #45B29D;		// turquoise
+$ci-2: #335c42;     // #45B29D;		// turquoise
 $ci-3: #EFC94C;		// yellow
 $ci-4: #E27A3F;		// orange
 $ci-5: #DF4949;		// red
@@ -38,7 +38,6 @@ $ci-7: #335c42;      // dark green,turquoise
 ------------------------------------------------------------------- */
 
 $primary-color: $ci-1;
-$primary-link-color: $ci-7;
 $secondary-color: $ci-6;
 $alert-color: $ci-5;
 $success-color: $ci-6;
@@ -82,7 +81,7 @@ $topbar-link-color-active: #000;
 $topbar-link-color-active-hover: #000;
 
 $topbar-dropdown-label-color: $ci-2;
-$topbar-dropdown-link-bg-hover: $ci-7;
+$topbar-dropdown-link-bg-hover: $ci-6;
 
 $topbar-link-bg-active: $ci-6; // Active Navigation Link
 $topbar-link-bg-hover: $ci-6;
