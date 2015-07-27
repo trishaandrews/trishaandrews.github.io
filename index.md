@@ -3,7 +3,7 @@
 # Use the widgets beneath and the content will be
 # inserted automagically in the webpage. To make
 # this work, you have to use › layout: frontpage
-# title: "Life by Numbers: Adventures in Data Science"
+# title: "Trisha Andrews"
 #
 
 layout: frontpage
