@@ -8,9 +8,9 @@
 
 layout: frontpage
 header:
-    image_fullwidth: greenstretch.jpg # purple_flowers.jpg "caffein_small2.jpg"
-    #caption: "photo credit: Stefan Eberhard"
-    #caption_url: http://www.eberhardphotography.com/
+    image_fullwidth: greenstretch.jpg
+    caption: "photo credit: Alan Levine"
+    caption_url: https://commons.wikimedia.org/wiki/File:Piano_strings_6.jpg
 widget-1:
     title: "Data Science Blog"
     url: './blog/'
