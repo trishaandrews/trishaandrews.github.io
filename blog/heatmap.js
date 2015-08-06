@@ -20,6 +20,15 @@ function heatmap_display(url, heatmapId, paletteName, model) {
         .style("visibility", "hidden");
 
     //==================================================
+    // http://bl.ocks.org/mbostock/3680958
+    function zoom() {
+    	svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    }
+
+    // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
+    var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
+
+    //==================================================
     var paddingheight = 150;
     var paddingwidth = 100;
     var viewerWidth = $(document).width()-paddingwidth;
@@ -213,11 +222,14 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 tooltip.style("visibility", "hidden");
             })
             .on("mousemove", function(d, i) {
+                tooltip.style("top", (d3.event.pageY - 55) + "px").style("left", (d3.event.pageX - 60) + "px");
+            })
+            /*.on("mousemove", function(d, i) {
                 var xPos = d3.event.pageX
 		        var yPos = d3.event.pageY
 		        //var location = $("#hoverBox").position().left + $("#hoverBox").width();
                 tooltip.style("top", (yPos)).style("left", (xPos));//-55 -60 //- 340
-            })
+            })*/
             .on('click', function() {
                 //console.log(d3.select(this));
                 changeOrder(heatmapId, antime);
