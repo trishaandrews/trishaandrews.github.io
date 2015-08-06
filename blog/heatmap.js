@@ -213,7 +213,10 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 tooltip.style("visibility", "hidden");
             })
             .on("mousemove", function(d, i) {
-                tooltip.style("top", (d3.event.pageY - 340) + "px").style("left", (d3.event.pageX - 205 + "px"));//-55 -60
+                var xPos = d3.event.pageX
+		        var yPos = d3.event.pageY
+		        //var location = $("#hoverBox").position().left + $("#hoverBox").width();
+                tooltip.style("top", (yPos)).style("left", (xPos));//-55 -60 //- 340
             })
             .on('click', function() {
                 //console.log(d3.select(this));
