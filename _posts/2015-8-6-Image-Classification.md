@@ -17,9 +17,9 @@ teaser: "Experements with SIFT features and d3."
 
 <!--<head>-->
 
-For my third project at Metis, I decided to experiment with image classification, and, since I have some prior experience with neural networks, I decided to avoid those in favor of learning something new. I also learned d3 in order to help display the classification results of various models.
-<script>
+For my third project at Metis, I decided to experiment with image classification, and, since I have some prior experience with neural networks, I decided to avoid those in favor of learning something new. I also learned d3 in order to help display the classification results of various models.  
 
+<script>
 $(document).ready(function() {
 	
 	heatmap_display("../blog/heatmaps/linsvc_lim=500_k=300.json", "#heatmap", "PuRd", 'linsvc');
