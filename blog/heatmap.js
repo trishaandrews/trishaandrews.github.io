@@ -1,18 +1,15 @@
 var classesNumber = 10,
-    cellSize = 30;
+    cellSize = 40, numbercells = 10;
 
 //#########################################################
 function heatmap_display(url, heatmapId, paletteName, model) {
 
     //==================================================
     // References
-    // http://bl.ocks.org/Soylent/bbff6cc507dca2f48792
-    // http://bost.ocks.org/mike/selection/
-    // http://bost.ocks.org/mike/join/
-    // http://stackoverflow.com/questions/9481497/understanding-how-d3-js-binds-data-to-nodes
-    // http://bost.ocks.org/mike/miserables/
-    // http://bl.ocks.org/ianyfchang/8119685
-    // http://bl.ocks.org/PBrockmann/635179ff33f17d2d75c2
+    // Patrick Brockmann: http://bl.ocks.org/PBrockmann/635179ff33f17d2d75c2
+    // http://bl.ocks.org/d3noob/10633192
+    // http://bl.ocks.org/mbostock/5577023
+
     //==================================================
     var tooltip = d3.select(heatmapId)
         .append("div")
@@ -20,39 +17,32 @@ function heatmap_display(url, heatmapId, paletteName, model) {
         .style("visibility", "hidden");
 
     //==================================================
-    // http://bl.ocks.org/mbostock/3680958
-    function zoom() {
-    	svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-    }
-
-    // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
-    var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
-
-    //==================================================
-    var paddingheight = 0;//150;
-    var paddingwidth = 0;//100;
-    var viewerWidth = 600;//$(document).width()-paddingwidth;
-    var viewerHeight = 600; //$(document).height()-paddingheight;
+    //var paddingheight = 0;//150;
+    //var paddingwidth = 0;// 100;
+    var viewerWidth = cellSize*numbercells + 250;
+    //$(document).width()-paddingwidth;
+    var viewerHeight = cellSize*numbercells + 250;
+    //$(document).height()-paddingheight;
     var viewerPosTop = 100;
     var viewerPosLeft = 100;
     var antime = 500;
     var maxpercent = 0.65;
     var colornumber = 9;
-    var numbercells = 10;
     var legendrange = [];
     for (var i = 0; i< maxpercent; i = i + (maxpercent/colornumber)){
         legendrange.push(i);
     }
-    var modeldir = "../blog/heatmaps/";
+    var modeldir = "./heatmaps/";
     var maxlim = 500;
     var maxk = 300;
     var lim = 500;
     var k = 300;
-    
+    var accuracy = 0;
+    var accuracies = [0];
     var legendElementWidth = cellSize;
 
     // http://bl.ocks.org/mbostock/5577023
-    var colors = colorbrewer[paletteName][colornumber];//[classesNumber];
+    var colors = colorbrewer[paletteName][colornumber];
 
     // http://bl.ocks.org/mbostock/3680999
     var svg;
@@ -63,7 +53,6 @@ function heatmap_display(url, heatmapId, paletteName, model) {
         var arr = data.data;
         var row_number = arr.length;
         var col_number = arr[0].length;
-        //console.log(col_number, row_number);
 	
         var colorScale = d3.scale.quantize()
             .domain([0.0, maxpercent])
@@ -85,6 +74,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
             .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
             .attr('stroke', '#000000')
             .attr('stroke-width', 1);
+
         var rowSortOrder = false;
         var colSortOrder = false;
 
@@ -115,7 +105,6 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 d3.select('#rowLabel_' + i).classed("hover", false);
             })
             .on("click", function(d, i) {
-
                 rowSortOrder = !rowSortOrder;
                 sortByValues("r", i, rowSortOrder);
             });
@@ -126,7 +115,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
             .attr("transform", "rotate(-90)")
             .attr("x", -(cellSize*numbercells)/2)
             .attr("y", -65)
-	        .style("text-anchor", "middle");
+	    .style("text-anchor", "middle");
 
         var colLabels = svg.append("g")
             .attr("class", "colLabels")
@@ -164,10 +153,8 @@ function heatmap_display(url, heatmapId, paletteName, model) {
             .attr("class", "axislabeltext")
             .attr("y", -50)
             .attr("x", (cellSize*numbercells)/2)
-	        .style("text-anchor", "middle");
-            
-	
-	
+	    .style("text-anchor", "middle");
+            	
         var row = svg.selectAll(".row")
 	    .data(data.data)
 	    .enter().append("g")
@@ -176,7 +163,6 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 	    })
 	    .attr("class", "row");
 
-	
 	var j = 0;
 	var heatMap = row.selectAll(".cell")
 	    .data(function(d) {
@@ -203,7 +189,13 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 	    })
 	    .attr("width", cellSize)
 	    .attr("height", cellSize)
-	    .style("fill", function(d) {
+	    .style("fill", function(d, i, j) {
+		if ( i == j) {
+		    acc = d/10;
+		    if (acc != null){
+			accuracies.push(acc);
+		    }
+		}
 		if (d != null) return colorScale(d);
 		else return "url(#diagonalHatch)";
 	    })
@@ -220,24 +212,21 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 d3.select('#colLabel_' + i).classed("hover", false);
                 d3.select('#rowLabel_' + j).classed("hover", false);
                 tooltip.style("visibility", "hidden");
-            })
-            .on("mousemove", function(d, i) {
-                tooltip.style("top", (d3.event.pageY -340) + "px").style("left", (d3.event.pageX - 360) + "px");
-            })//- 55) + "px" //- 60) + "px"
-            /*.on("mousemove", function(d, i) {
-                var xPos = d3.event.pageX
-		        var yPos = d3.event.pageY
-		        //var location = $("#hoverBox").position().left + $("#hoverBox").width();
-                tooltip.style("top", (yPos)).style("left", (xPos));//-55 -60 //- 340
+            })/*
+            .on("mousemove", function(d, i, j) {
+		console.log(d3.event.pageX)
+                tooltip.style("top", (d3.event.pageY - 55) + "px").style("left", (d3.event.pageX - 60) + "px");
             })*/
+            .on("mousemove", function(d, i, j) {
+                tooltip.style("top",  ((j+1)*cellSize + viewerPosTop) +"px").style("left",  ((i-1)*cellSize +  viewerPosLeft + (cellSize/2)) + "px"); //- 340
+            })
             .on('click', function() {
-                //console.log(d3.select(this));
                 changeOrder(heatmapId, antime);
             });
-
+	
         var legend = svg.append("g")
             .attr("class", "legend")
-            .attr("transform", "translate(250, 0)")
+            .attr("transform", "translate("+ (cellSize*numbercells - 40) + ", 0)")
             .selectAll(".legendElement")
             .data(legendrange)
             .enter().append("g")
@@ -247,7 +236,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
             .attr("y", function(d, i) {
                 return legendElementWidth * i;
             })
-            .attr("x", viewerPosTop)
+            .attr("x", viewerPosTop)// - 20)
             .attr("class", "cellLegend bordered")
             .attr("height", legendElementWidth)
             .attr("width", cellSize / 2)
@@ -263,21 +252,22 @@ function heatmap_display(url, heatmapId, paletteName, model) {
             .attr("y", function(d, i) {
                 return legendElementWidth * i + (legendElementWidth/2);
             })
-            .attr("x", viewerPosTop + cellSize)
+            .attr("x", viewerPosTop + cellSize);// - 20);
 
 	//==========================================
 	// Text legend
+	var tloffset = 30; 
 	var textlegend = svg.append("g")
 	    .attr("class", "textlegend")
-            .attr("transform", "translate(0, 350)")
+            .attr("transform", "translate(0, "+(cellSize*numbercells + 30)+")")
 	
-	/*textlegend.append("text")
+	textlegend.append("text")
 	    .attr("class", "mono textlegendElement")
 	    .attr("id", "acctext")
-	    .text("Accuracy: " + getAccuracy())
+	    .text("Overall Accuracy: " + getAccuracy())
 	    .attr("x", cellSize*numbercells/2)
 	    .style("text-anchor", "middle")
-	    .attr("y", 0)*/
+	    .attr("y", 0)
 
 	textlegend.append("text")
 	    .attr("class", "mono textlegendElement")
@@ -285,7 +275,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 	    .text("Current Model: " + modelname(model))
 	    .attr("x", cellSize*numbercells/2)
 	    .style("text-anchor", "middle")
-	    .attr("y", 20)
+	    .attr("y", tloffset)
 
 	textlegend.append("text")
             .attr("class", "mono textlegendElement")
@@ -293,15 +283,15 @@ function heatmap_display(url, heatmapId, paletteName, model) {
             .text("Number of Training Images: " + lim)
             .attr("x", cellSize*numbercells/2)
 	    .style("text-anchor", "middle")
-	    .attr("y", 40)
+	    .attr("y", 2*tloffset)
 
 	textlegend.append("text")
 	    .attr("class", "mono textlegendElement")
 	    .attr("id", "ktext")
-	    .text("Number of SIFT Clusters per class: " + k)
+	    .text("Number of Feature Centers per Label: " + k) //SIFT Clusters
 	    .attr("x", cellSize*numbercells/2)
 	    .style("text-anchor", "middle")
-	    .attr("y", 60)
+	    .attr("y", 3*tloffset)
 	
 	
         //==================================================
@@ -312,48 +302,42 @@ function heatmap_display(url, heatmapId, paletteName, model) {
         // read a change in the training image input
         d3.select("#lim").on("input", function() {
             newlim = checknewness(this.value, maxlim, 5);
-	    //if (newlim != lim){
-		//lim = newlim
 	    lim = newlim
 	    update(model, newlim, k);
-	    //}
         });
 
         // read a change in the cluster input
         d3.select("#k").on("input", function() {
             newk = checknewness(this.value, maxk);
-	    //if (newk != k){
-	    //k = newk
 	    k = newk
 	    update(model, lim, newk);
-	    //}//newk = this.value;
         });
+
 	// read a change in model
 	d3.select("#mname").on("input", function() {
 	    newmodel = checknewmodel(this.value);
 	    model = newmodel
 	    update(newmodel, lim, k);
 	});
-        //}
+
 	function checknewness(newval, maxval) {
 	    //console.log(newval)
-	    if (newval < 75){//(maxval/num)) {
+	    if (newval < 75){
 		newval = 10;
 		return newval;
-	    }else if (newval >= 75 && newval < 150){//(maxval/num) && newval <= (maxval/num)*2){
+	    }else if (newval >= 75 && newval < 150){
 		newval = 50;
 		return newval;
-	    }else if (newval >= 150 && newval < 225){//(maxval/num)*2 && newval <= (maxval/num)*3){
+	    }else if (newval >= 150 && newval < 225){
 		newval = 100;
 		return newval;
-	    }else if (newval >= 225 && newval < 300){//(maxval/num)*3 && newval <= (maxval/num)*4){
+	    }else if (newval >= 225 && newval < 350 ){
 		newval = 300;
 		return newval;
-	    }else if (newval > 300 && newval < maxval){
+	    }else if (newval > 350 && newval < maxval){
 		newval = 500;
 		return newval;
 	    }else{
-		//console.log("bad final:" + newval)
 		return maxval;
 	    }
 	}
@@ -441,26 +425,14 @@ function heatmap_display(url, heatmapId, paletteName, model) {
         //==================================================
         d3.select("#model").on("change", function() {
 	    var newModel = d3.select("#model").property("value");
-	    //var url = modeldir + newModel + "_lim=" + lim + "_k="+k+".json";
-	    //d3.selectAll("svg").remove()	
-            //heatmap_display(url, heatmapId, paletteName, model, lim, k);
 	    update(newModel, lim, k);
-            //svg.exit().remove();
-            //changeModel(newModel, lim, k, heatmapId, paletteName, modeldir);
         });
 
 	//===================================================
 	function update (newmodel, newlim, newk){
 	    var url = modeldir + newmodel + "_lim=" + newlim + "_k="+newk+".json";
-	    //d3.selectAll("svg > *").remove();
-	    //d3.selectAll("svg").remove();	
-	    //heatmap_display(url, heatmapId, paletteName, model, lim, k);
-	    //svg.selectAll(".row")
-	    //data.data = updatedata(url)
-	    //return data.data
-	    
 	    d3.json(url, function(error, dataset) {
-		//var svg = d3.select(heatmapId);
+		accuracies = [0];
 		var t = svg.transition().duration(100);
 		svg.selectAll(".row")
 		    .data(dataset.data)
@@ -476,7 +448,13 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 			j++;
 			return d;
 		    })
-		    .style("fill", function(d) {
+		    .style("fill", function(d, i, j) {
+			if ( i == j) {
+			    acc = d/10;
+			    if (acc != null){
+				accuracies.push(acc);
+			    }
+			}
 			if (d != null) return colorScale(d);
 			else return "url(#diagonalHatch)";
 		    });
@@ -484,21 +462,26 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 		svg.select("#limtext")
 		    .text("Number of Training Images: " + newlim)
 		svg.select("#ktext")
-		    .text("Number of SIFT Clusters per class: " + newk)
+		    .text("Number of Feature Centers per Label: " + newk) //SIFT Clusters
 		svg.select("#modeltext")
 		    .text("Current Model: " + modelname(newmodel))
+		svg.select("#acctext")
+		    .text("Overall Accuracy: " + getAccuracy())
 		
-		//rw = svg.selectAll(".row")
-		//cl = svg.selectAll(".cell")
-		//console.log(rw)
-		//console.log(cl)
-		//return data.data;
 	    });
-	    //return data.data;
 	}
-
+	//=================================================
+	function getAccuracy(){
+	    var count = 0;
+	    for(var i=0, n=accuracies.length; i < n; i++) 
+	    { 
+		count += accuracies[i]; 
+	    }
+	    return (count/numbercells).toFixed(4);
+	}
+	    
         //==================================================
-        d3.select("#palette")
+        /*d3.select("#palette")
             .on("keyup", function() {
 		var newPalette = d3.select("#palette").property("value");
 		if (newPalette != null)						// when interfaced with jQwidget, the ComboBox handles keyup event but value is then not available ?
@@ -507,12 +490,11 @@ function heatmap_display(url, heatmapId, paletteName, model) {
             .on("change", function() {
 		var newPalette = d3.select("#palette").property("value");
                 changePalette(newPalette, heatmapId, colornumber, maxpercent);
-            });
-        //PuB<script src="http://d3js.org/queue.v1.min.js"></script>u:{3:["#ece7f2","#a6bddb","#2b8cbe"],4:["#f1eef6","#bdc9e1","#74a9cf","#0570b0"],5:["#f1eef6","#bdc9e1","#74a9cf","#2b8cbe","#045a8d"],6:["#f1eef6","#d0d1e6","#a6bddb","#74a9cf","#2b8cbe","#045a8d"],7:["#f1eef6","#d0d1e6","#a6bddb","#74a9cf","#3690c0","#0570b0","#034e7b"],8:["#fff7fb","#ece7f2","#d0d1e6","#a6bddb","#74a9cf","#3690c0","#0570b0","#034e7b"],9:["#fff7fb","#ece7f2","#d0d1e6","#a6bddb","#74a9cf","#3690c0","#0570b0","#045a8d","#023858"]},
+            });*/
        
-    });
+	//==================================================
 
-    //==================================================
+    }); //end d3.json
 }
 
 //#########################################################
@@ -565,48 +547,3 @@ function changePalette(paletteName, heatmapId, colornumber, maxpercent) {
         });
 }
 
-//########################################################
-/*function get_accuracies(modeldir){//, accuracies) {
-    var accuracies = [];
-    var dsv = d3.dsv(" ", "text/plain");
-    //accuracies = function getAccuracies(){
-    //    queue()
-    //	.defer(d3.dsv, modeldir+"accuracies.txt")
-    //	.await(getAccuracy)
-    //function(){
-    var acc2 = dsv(modeldir+"accuracies.txt", function(error, dsvdata) {
-	//return dsvdata;
-	// function getAccuracy(error, dsvdata){
-          //accuracies = dsvdata;
-	  // console.log(accuracies);
-	dsvdata.forEach(function(d) {
-            console.log(d);
-            //console.log(d.lim);
-            //console.log(d.k);
-            //console.log(d.model);
-	    //console.log(d.accuracy);
-	    accuracies.push(d);
-	    //console.log(accuracies);
-	    /*if (d.lim == lim && d.k == k && d.model == model){
-		console.log(d)
-		accuracy = d.accuracy;
-		console.log(accuracy)
-		//return accuracy;
-	    }
-	    
-	});
-	console.log("hello" + accuracies);
-	return accuracies;
-    });
-    //return accuracy;
-    console.log(acc2);
-    console.log(accuracies);
-    return accuracies;
-}//);
-    //return dsvdata
-    //console.log(accuracies)
-    //return accuracies;
-//}
-        //console.log(accuracies);
-
-//}*/

@@ -10,18 +10,16 @@ teaser: "Experements with SIFT features and d3."
 <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
-<!--<script src="https://github.com/turban/d3.slider/d3.slider.js"></script>
--->
+
 <script src="../blog/heatmap.js"></script>
 <link rel="stylesheet" href="../blog/heatmap.css" />
 
 <!--<head>-->
 
-For my third project at Metis, I decided to experiment with image classification, and, since I have some prior experience with neural networks, I decided to avoid those in favor of learning something new. I also learned d3 in order to help display the classification results of various models.  
+For my third project at Metis, I decided to experiment with image classification. Since I have some prior experience with neural networks, I decided to avoid those in favor of learning something new. I also learned d3 in order to help display the classification results of various models.  
 
 <script>
 $(document).ready(function() {
-	
 	heatmap_display("../blog/heatmaps/linsvc_lim=500_k=300.json", "#heatmap", "PuRd", 'linsvc');
 });
 </script>
@@ -39,7 +37,7 @@ $(document).ready(function() {
          <p>
             <label for="lim" 
                 style="display: inline-block; text-align: center">
-            # Images:<span id="lim-value"></span>
+            Training Images:<span id="lim-value"></span>
             </label>
             <input type="range" min="1" max="510" id="lim" value="500">
         </p>
@@ -48,7 +46,7 @@ $(document).ready(function() {
          <p>
             <label for="k" 
                 style="display: inline-block; text-align: center">
-            # Clusters:<span id="k-value"></span>
+            Feature Centers:<span id="k-value"></span>
             </label>
             <input type="range" min="1" max="310" id="k" value="300">
         </p>
@@ -81,11 +79,6 @@ $(document).ready(function() {
     </table>
     </td>
   </tr>
-  <!--<tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
-  </tr>-->
 </table>
 
 <!--Palette:
