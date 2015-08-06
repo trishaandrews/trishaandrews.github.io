@@ -218,7 +218,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 tooltip.style("top", (d3.event.pageY - 55) + "px").style("left", (d3.event.pageX - 60) + "px");
             })*/
             .on("mousemove", function(d, i, j) {
-                tooltip.style("top",  (j*cellSize - 3*cellSize + viewerPosTop) +"px").style("left",  ((i-1)*cellSize +  viewerPosLeft + (cellSize/2)) + "px"); //- 340
+                tooltip.style("top",  (j*cellSize) +"px").style("left",  ((i-1)*cellSize +  viewerPosLeft + (cellSize/2)) + "px"); //- 340
             })
             .on('click', function() {
                 changeOrder(heatmapId, antime);
