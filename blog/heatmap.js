@@ -23,7 +23,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
     var paddingheight = 150;
     var paddingwidth = 100;
     var viewerWidth = $(document).width()-paddingwidth;
-    var viewerHeight = 400//$(document).height()-paddingheight;
+    var viewerHeight = 500//$(document).height()-paddingheight;
     var viewerPosTop = 100;
     var viewerPosLeft = 100;
     var antime = 500;
@@ -213,7 +213,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 tooltip.style("visibility", "hidden");
             })
             .on("mousemove", function(d, i) {
-                tooltip.style("top", (d3.event.pageY) + "px").style("left", (d3.event.pageX + "px"));//-55 -60
+                tooltip.style("top", (d3.event.pageY - paddingheight) + "px").style("left", (d3.event.pageX - paddingwidth + "px"));//-55 -60
             })
             .on('click', function() {
                 //console.log(d3.select(this));
