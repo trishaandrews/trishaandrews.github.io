@@ -29,7 +29,7 @@ $(document).ready(function() {
 <body>-->
 
 <div id="heatmap"></div>
-<table style="height:80px; width:80%; text-align: center">
+<table style="height:60px; width:80%; text-align: center; align: center">
   <tr>
     <td>
     <table ><!--style="width:30%;">-->

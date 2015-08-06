@@ -13,7 +13,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
     //==================================================
     var tooltip = d3.select(heatmapId)
         .append("div")
-        .style("position", "absolute")
+        .style("position", "relative")
         .style("visibility", "hidden");
 
     //==================================================
