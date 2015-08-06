@@ -34,7 +34,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
     for (var i = 0; i< maxpercent; i = i + (maxpercent/colornumber)){
         legendrange.push(i);
     }
-    var modeldir = "./heatmaps/";
+    var modeldir = "../blog/heatmaps/";
     var maxlim = 500;
     var maxk = 300;
     var lim = 500;

@@ -12,8 +12,8 @@ teaser: "The first step in answering any question involves getting some data. In
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <!--<script src="https://github.com/turban/d3.slider/d3.slider.js"></script>
 -->
-<script src="heatmap.js"></script>
-<link rel="stylesheet" href="heatmap.css" />
+<script src="../blog/heatmap.js"></script>
+<link rel="stylesheet" href="../blog/heatmap.css" />
 
 <!--<head>-->
 
@@ -21,7 +21,7 @@ teaser: "The first step in answering any question involves getting some data. In
 
 $(document).ready(function() {
 	
-	heatmap_display("./heatmaps/linsvc_lim=500_k=300.json", "#heatmap", "PuRd", 'linsvc');
+	heatmap_display("../blog/heatmaps/linsvc_lim=500_k=300.json", "#heatmap", "PuRd", 'linsvc');
 });
 </script>
 
