@@ -2,13 +2,8 @@ var classesNumber = 10,
     cellSize = 30;
 
 //#########################################################
-function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
+function heatmap_display(url, heatmapId, paletteName, model) {
 
-    console.log(accuracies)
-    //##########################################################################
-    // Patrick.Brockmann@lsce.ipsl.fr
-    //##########################################################################
-    
     //==================================================
     // References
     // http://bl.ocks.org/Soylent/bbff6cc507dca2f48792
@@ -17,21 +12,12 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
     // http://stackoverflow.com/questions/9481497/understanding-how-d3-js-binds-data-to-nodes
     // http://bost.ocks.org/mike/miserables/
     // http://bl.ocks.org/ianyfchang/8119685
-
+    // http://bl.ocks.org/PBrockmann/635179ff33f17d2d75c2
     //==================================================
     var tooltip = d3.select(heatmapId)
         .append("div")
         .style("position", "absolute")
         .style("visibility", "hidden");
-
-    //==================================================
-    // http://bl.ocks.org/mbostock/3680958
-    //function zoom() {
-    	//svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-    //}
-
-    // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
-    //var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
 
     //==================================================
     var paddingheight = 150;
@@ -49,13 +35,11 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
         legendrange.push(i);
     }
     var modeldir = "./heatmaps/";
-    //var model = "linsvc";
     var maxlim = 500;
     var maxk = 300;
     var lim = 500;
     var k = 300;
-    var accuracy;
-    //var accuracies = getAccuracies(modeldir);
+    
     var legendElementWidth = cellSize;
 
     // http://bl.ocks.org/mbostock/5577023
@@ -79,7 +63,6 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
         svg = d3.select(heatmapId).append("svg")
             .attr("width", viewerWidth)
             .attr("height", viewerHeight)
-	    //.call(zoomListener)
             .append("g")
             .attr("transform", "translate(" + viewerPosLeft + "," + viewerPosTop + ")");
 
@@ -126,17 +109,15 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
 
                 rowSortOrder = !rowSortOrder;
                 sortByValues("r", i, rowSortOrder);
-                //d3.select("#order").property("selectedIndex", 0);
-                //$("#order").jqxComboBox({selectedIndex: 0});
             });
 
         var rowUpperLabel = svg.append("text")
             .text("True Label")
             .attr("class", "axislabeltext")
             .attr("transform", "rotate(-90)")
-            .attr("x", -(cellSize*numbercells)/2)//-45)//-50)
-            .attr("y", -65)//-(cellSize*10)/2)//-45)
-	    .style("text-anchor", "middle");
+            .attr("x", -(cellSize*numbercells)/2)
+            .attr("y", -65)
+	        .style("text-anchor", "middle");
 
         var colLabels = svg.append("g")
             .attr("class", "colLabels")
@@ -144,7 +125,6 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
             .data(data.columns)
             .enter().append("text")
             .text(function(d) {
-                //d.shift();
                 return d.count > 1 ? d.reverse().join("/") : d.reverse();
             })
             .attr("x", 0)
@@ -168,18 +148,17 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
             .on("click", function(d, i) {
                 colSortOrder = !colSortOrder;
                 sortByValues("c", i, colSortOrder);
-                //d3.select("#order").property("selectedIndex", 0);
             });
 
         var colUpperLabel = svg.append("text")
             .text("Predicted Label")
             .attr("class", "axislabeltext")
-            .attr("y", -50)//-(cellSize*10)/2)//-45)//-50)
-            .attr("x", (cellSize*numbercells)/2)//-65)//-(cellSize*10)/2)//-45)
-	    .style("text-anchor", "middle");
+            .attr("y", -50)
+            .attr("x", (cellSize*numbercells)/2)
+	        .style("text-anchor", "middle");
             
 	
-	//var heatMap = update(model, lim, k);
+	
         var row = svg.selectAll(".row")
 	    .data(data.data)
 	    .enter().append("g")
@@ -188,7 +167,7 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
 	    })
 	    .attr("class", "row");
 
-	//var row = update(heatmapId, model, modeldir, lim, k);
+	
 	var j = 0;
 	var heatMap = row.selectAll(".cell")
 	    .data(function(d) {
@@ -246,16 +225,14 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
             .attr("transform", "translate(250, 0)")
             .selectAll(".legendElement")
             .data(legendrange)
-            //.data([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7])//, 0.8, 0.9])
             .enter().append("g")
-	    //.uexit().remove()
             .attr("class", "legendElement");
 
         legend.append("svg:rect")
             .attr("y", function(d, i) {
                 return legendElementWidth * i;
             })
-            .attr("x", viewerPosTop)// - 20)
+            .attr("x", viewerPosTop)
             .attr("class", "cellLegend bordered")
             .attr("height", legendElementWidth)
             .attr("width", cellSize / 2)
@@ -271,7 +248,7 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
             .attr("y", function(d, i) {
                 return legendElementWidth * i + (legendElementWidth/2);
             })
-            .attr("x", viewerPosTop + cellSize);// - 20);
+            .attr("x", viewerPosTop + cellSize)
 
 	//==========================================
 	// Text legend
@@ -279,13 +256,13 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
 	    .attr("class", "textlegend")
             .attr("transform", "translate(0, 350)")
 	
-	textlegend.append("text")
+	/*textlegend.append("text")
 	    .attr("class", "mono textlegendElement")
 	    .attr("id", "acctext")
 	    .text("Accuracy: " + getAccuracy())
 	    .attr("x", cellSize*numbercells/2)
 	    .style("text-anchor", "middle")
-	    .attr("y", 0)
+	    .attr("y", 0)*/
 
 	textlegend.append("text")
 	    .attr("class", "mono textlegendElement")
@@ -302,13 +279,11 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
             .attr("x", cellSize*numbercells/2)
 	    .style("text-anchor", "middle")
 	    .attr("y", 40)
-            //})
-            //.attr("y", 0)//viewerPosTop + cellSize - 20);
+
 	textlegend.append("text")
 	    .attr("class", "mono textlegendElement")
 	    .attr("id", "ktext")
 	    .text("Number of SIFT Clusters per class: " + k)
-	    //.attr("x", 10)
 	    .attr("x", cellSize*numbercells/2)
 	    .style("text-anchor", "middle")
 	    .attr("y", 60)
@@ -506,22 +481,7 @@ function heatmap_display(url, heatmapId, paletteName, model, accuracies) {
 	    });
 	    //return data.data;
 	}
-	//=================================================
-	function getAccuracy(){
-	    accuracies.forEach(function(d) {
-		//console.log(d);
-		//console.log(d.lim);
-		//console.log(d.k);
-		//console.log(d.model);
-		//console.log(d.accuracy);
-		if (d.lim == lim && d.k == k && d.model == model){
-		    console.log(d)
-		    accuracy = d.accuracy;
-		    console.log(accuracy)
-		    return accuracy;
-		}
-	    });
-	}
+
         //==================================================
         d3.select("#palette")
             .on("keyup", function() {
@@ -591,7 +551,7 @@ function changePalette(paletteName, heatmapId, colornumber, maxpercent) {
 }
 
 //########################################################
-function get_accuracies(modeldir){//, accuracies) {
+/*function get_accuracies(modeldir){//, accuracies) {
     var accuracies = [];
     var dsv = d3.dsv(" ", "text/plain");
     //accuracies = function getAccuracies(){
@@ -617,7 +577,7 @@ function get_accuracies(modeldir){//, accuracies) {
 		accuracy = d.accuracy;
 		console.log(accuracy)
 		//return accuracy;
-	    }*/
+	    }
 	    
 	});
 	console.log("hello" + accuracies);
@@ -634,4 +594,4 @@ function get_accuracies(modeldir){//, accuracies) {
 //}
         //console.log(accuracies);
 
-//}
+//}*/

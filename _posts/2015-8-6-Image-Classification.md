@@ -21,7 +21,7 @@ teaser: "The first step in answering any question involves getting some data. In
 
 $(document).ready(function() {
 	
-	heatmap_display("./heatmaps/linsvc_lim=500_k=300.json", "#heatmap", "PuRd", 'linsvc', acc);
+	heatmap_display("./heatmaps/linsvc_lim=500_k=300.json", "#heatmap", "PuRd", 'linsvc');
 });
 </script>
 
