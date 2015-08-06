@@ -3,7 +3,7 @@ layout: page
 title:  "It's a Bird, It's a Plane!"
 subheadline:  "Introduction to image classification"
 author: Trisha
-teaser: "The first step in answering any question involves getting some data. In this case, that meant web scraping."
+teaser: "Experements with SIFT features and d3"
 ---
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
