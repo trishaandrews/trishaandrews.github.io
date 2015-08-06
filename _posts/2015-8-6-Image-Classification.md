@@ -3,7 +3,7 @@ layout: page
 title:  "It's a Bird, It's a Plane!"
 subheadline:  "Introduction to image classification"
 author: Trisha
-teaser: "Experements with SIFT features and d3"
+teaser: "Experements with SIFT features and d3."
 ---
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -17,6 +17,7 @@ teaser: "Experements with SIFT features and d3"
 
 <!--<head>-->
 
+For my third project at Metis, I decided to experiment with image classification, and, since I have some prior experience with neural networks, I decided to avoid those in favor of learning something new. I also learned d3 in order to help display the classification results of various models.
 <script>
 
 $(document).ready(function() {

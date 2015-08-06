@@ -23,7 +23,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
     var paddingheight = 150;
     var paddingwidth = 100;
     var viewerWidth = $(document).width()-paddingwidth;
-    var viewerHeight = 500//$(document).height()-paddingheight;
+    var viewerHeight = 550//$(document).height()-paddingheight;
     var viewerPosTop = 100;
     var viewerPosLeft = 100;
     var antime = 500;
