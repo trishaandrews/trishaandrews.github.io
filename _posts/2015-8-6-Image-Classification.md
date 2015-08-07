@@ -67,8 +67,8 @@ Didn't end up using in final models
 - Confusing (Difference of Gaussians to generate feature vectors in 128 dimensional space)  
 - Works well  
 
-<!--<img class="zoom-img" src="../images/all_classes_sift.png" alt="same images with sift features">  -->
-![same images with sift features](../images/all_classes_sift.png)  
+<img class="zoom-img" src="../images/all_classes_sift.png" alt="same images with sift features">
+<!--![same images with sift features](../images/all_classes_sift.png)  -->
 
 Cluster features with K Means, compute feature occurrence histograms, and feed those to the models for train/test.  
 
