@@ -234,7 +234,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 //tooltip.html(d)
                  
                 tooltip.style('left', (d3.event.pageX - 360) + 'px')
-                .style('top', (d3.event.pageY - 310) + 'px');
+                .style('top', (d3.event.pageY - 350) + 'px');
             })
             .on('click', function() {
                 changeOrder(heatmapId, antime);
