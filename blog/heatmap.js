@@ -223,7 +223,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                  coordinates = d3.mouse(this);
                  var x = coordinates[0];
                  var y = coordinates[1];
-                 tooltip.style("top",  (y+100) +"px").style("left",  (x+100) +"px");
+                 tooltip.style("top",  (y+1200) +"px").style("left",  (x+100) +"px");
             })
             .on('click', function() {
                 changeOrder(heatmapId, antime);
