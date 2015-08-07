@@ -58,8 +58,8 @@ Color is not generally a useful feature for object classification, so convert al
 - Sensitive to noise/patterns  
 
 Didn't end up using in final models  
-<img class="zoom-img" src="../images/all_classes_harris.png" alt="same images with harris features">  
-<!--![same images with harris features](../images/all_classes_harris.png)  -->
+<!--<img class="zoom-img" src="../images/all_classes_harris.png" alt="same images with harris features">  -->
+![same images with harris features](../images/all_classes_harris.png)  
 
 **SIFT (Scale-Invariant Feature Transform)**
 
