@@ -44,20 +44,21 @@ Color is not generally a useful feature for object classification, so convert al
 
 ###  Features  
 
-####  Harris Corners
+**Harris Corners**
 
-##### Pros:  
+**Pros:**  
 
 - Easy to understand
 - Somewhat customizable  
-##### Cons:  
+
+**Cons:**  
 
 - Sensitive to noise/patterns  
 
 Didn't end up using in final models  
 ![same images with harris features](../images/all_classes_harris.png)  
 
-#### SIFT (Scale-Invariant Feature Transform)
+**SIFT (Scale-Invariant Feature Transform)**
 
 - Proprietary ([David Lowe](https://en.wikipedia.org/wiki/David_G._Lowe), 1999/2004)  
 - Confusing (Difference of Gaussians to generate feature vectors in 128 dimensional space)  
