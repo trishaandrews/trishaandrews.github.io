@@ -26,7 +26,7 @@ $(document).ready(function() {
 
 <body>-->
 
-##The Data:  
+## The Data:  
 - Stanford [STL-10 dataset](http://cs.stanford.edu/~acoates/stl10/)
 - 10 classes: airplane, bird, car, cat, deer, dog, horse, monkey, ship, truck
 - 96x96 px, 3 channel RGB images
@@ -34,26 +34,26 @@ $(document).ready(function() {
 - 100000 unlabeled images for unsupervised learning  
 ![Sample image from each class](../images/all_classes_color.png)
 
-##The Process:  
-###Grayscale  
+## The Process:  
+###  Grayscale    
 Color is not generally a useful feature for object classification, so convert all images to grayscale.  
 ![same images now in grayscale](../images/all_classes_gray.png)
-###Features
-####Harris Corners
+###  Features  
+####  Harris Corners
 Pros:
-- Easy to understand
-- Somewhat customizable
-Cons:
+- Easy to understand  
+- Somewhat customizable  
+Cons:  
 - Sensitive to noise/patterns  
 Didn't end up using in final models  
 ![same images with harris features](../images/all_classes_harris.png)  
-####SIFT (Scale-Invariant Feature Transform)
-- Proprietary ([David Lowe](https://en.wikipedia.org/wiki/David_G._Lowe), 1999/2004)
-- Confusing (Difference of Gaussians to generate feature vectors in 128 dimensional space)
+#### SIFT (Scale-Invariant Feature Transform)
+- Proprietary ([David Lowe](https://en.wikipedia.org/wiki/David_G._Lowe), 1999/2004)  
+- Confusing (Difference of Gaussians to generate feature vectors in 128 dimensional space)  
 - Works well  
 ![same images with sift features](../images/all_classes_sift.png)  
 
-##Results  
+## The Results  
 <div id="heatmap"></div>
 <table style="height:60px; width:80%; text-align: center; align: center">
   <tr>
@@ -120,7 +120,7 @@ Didn't end up using in final models
   <option value="PuOr">PuOr</option> 
 </select>-->
   
-##Image classification is hard  
+## Image classification is hard  
 Cat-Monkey and Bird-Plane  
 ![these images look similar for different objects](../images/catmonkey_birdplane.png)  
 Some images are just odd. A couple of these made me take a second look at their assigned labels. Can you classify them? (results on hover)  
