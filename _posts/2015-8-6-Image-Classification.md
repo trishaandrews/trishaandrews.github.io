@@ -3,7 +3,7 @@ layout: page
 title:  "It's a Bird, It's a Plane!"
 subheadline:  "Introduction to image classification"
 author: Trisha
-teaser: "Experements with SIFT features and d3."
+teaser: "Experiments with SIFT features and d3."
 ---
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -16,8 +16,6 @@ teaser: "Experements with SIFT features and d3."
 
 <!--<head>-->
 
-For my third project at Metis, I decided to experiment with image classification. Since I have some prior experience with neural networks, I decided to avoid those in favor of learning something new. I also learned d3 in order to help display the classification results of various models.  
-
 <script>
 $(document).ready(function() {
 	heatmap_display("../blog/heatmaps/linsvc_lim=500_k=300.json", "#heatmap", "PuRd", 'linsvc');
@@ -28,6 +26,34 @@ $(document).ready(function() {
 
 <body>-->
 
+##The Data:  
+- Stanford [STL-10 dataset](http://cs.stanford.edu/~acoates/stl10/)
+- 10 classes: airplane, bird, car, cat, deer, dog, horse, monkey, ship, truck
+- 96x96 px, 3 channel RGB images
+- 500 training images, 800 test images per class
+- 100000 unlabeled images for unsupervised learning  
+![Sample image from each class](../images/all_classes_color.png)
+
+##The Process:  
+###Grayscale  
+Color is not generally a useful feature for object classification, so convert all images to grayscale.  
+![same images now in grayscale](../images/all_classes_gray.png)
+###Features
+####Harris Corners
+Pros:
+- Easy to understand
+- Somewhat customizable
+Cons:
+- Sensitive to noise/patterns  
+Didn't end up using in final models  
+![same images with harris features](../images/all_classes_harris.png)  
+####SIFT (Scale-Invariant Feature Transform)
+- Proprietary ([David Lowe](https://en.wikipedia.org/wiki/David_G._Lowe), 1999/2004)
+- Confusing (Difference of Gaussians to generate feature vectors in 128 dimensional space)
+- Works well  
+![same images with sift features](../images/all_classes_sift.png)  
+
+##Results  
 <div id="heatmap"></div>
 <table style="height:60px; width:80%; text-align: center; align: center">
   <tr>
@@ -93,5 +119,14 @@ $(document).ready(function() {
   <option value="BrBG">BrBG</option>
   <option value="PuOr">PuOr</option> 
 </select>-->
+  
+##Image classification is hard  
+Cat-Monkey and Bird-Plane  
+![these images look similar for different objects](../images/catmonkey_birdplane.png)  
+Some images are just odd. A couple of these made me take a second look at their assigned labels. Can you classify them? (results on hover)  
+![odd images](../images/oddimages.png "monkey, airplane, dog, cat, car, monkey, truck, truck")  
+My results aren't actually that bad. The best models are over three times better than guessing, and, according to [this website](http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html), I happened to pick a fairly difficult dataset. I also didn't get time to address the unlabeled images, which is where this dataset really excels. I guess I'll just have to experiment with deep learning next time!
+[papers from the STL-10](../images/stl10pub.png)  
+
 
 
