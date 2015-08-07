@@ -46,11 +46,14 @@ Color is not generally a useful feature for object classification, so convert al
 
 ####  Harris Corners
 
-Pros:  
-- Easy to understand  
+##### Pros:  
+
+- Easy to understand
 - Somewhat customizable  
-Cons:  
+##### Cons:  
+
 - Sensitive to noise/patterns  
+
 Didn't end up using in final models  
 ![same images with harris features](../images/all_classes_harris.png)  
 
