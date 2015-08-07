@@ -1,5 +1,6 @@
 var classesNumber = 10,
     cellSize = 40, numbercells = 10;
+var coordinates = [0, 0];
 
 //#########################################################
 function heatmap_display(url, heatmapId, paletteName, model) {
@@ -218,7 +219,11 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 tooltip.style("top", (d3.event.pageY - 55) + "px").style("left", (d3.event.pageX - 60) + "px");
             })*/
             .on("mousemove", function(d, i, j) {
-                tooltip.style("top",  (j*cellSize) +"px").style("left",  (i*cellSize + (cellSize/2)) + "px"); //- 340
+                //tooltip.style("top",  (j*cellSize) +"px").style("left",  (i*cellSize + (cellSize/2)) + "px"); //- 340
+                 coordinates = d3.mouse(this);
+                 var x = coordinates[0];
+                 var y = coordinates[1];
+                 tooltip.style("top",  (y+50) +"px").style("left",  (x+50) +"px");
             })
             .on('click', function() {
                 changeOrder(heatmapId, antime);

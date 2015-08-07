@@ -26,31 +26,39 @@ $(document).ready(function() {
 
 <body>-->
 
-## The Data:  
+## The Data  
 - Stanford [STL-10 dataset](http://cs.stanford.edu/~acoates/stl10/)
 - 10 classes: airplane, bird, car, cat, deer, dog, horse, monkey, ship, truck
 - 96x96 px, 3 channel RGB images
 - 500 training images, 800 test images per class
 - 100000 unlabeled images for unsupervised learning  
+
 ![Sample image from each class](../images/all_classes_color.png)
 
-## The Process:  
-###  Grayscale    
+## The Process  
+
+###  Grayscale
+
 Color is not generally a useful feature for object classification, so convert all images to grayscale.  
 ![same images now in grayscale](../images/all_classes_gray.png)
 ###  Features  
+
 ####  Harris Corners
-Pros:
+
+Pros:  
 - Easy to understand  
 - Somewhat customizable  
 Cons:  
 - Sensitive to noise/patterns  
 Didn't end up using in final models  
 ![same images with harris features](../images/all_classes_harris.png)  
+
 #### SIFT (Scale-Invariant Feature Transform)
+
 - Proprietary ([David Lowe](https://en.wikipedia.org/wiki/David_G._Lowe), 1999/2004)  
 - Confusing (Difference of Gaussians to generate feature vectors in 128 dimensional space)  
 - Works well  
+
 ![same images with sift features](../images/all_classes_sift.png)  
 
 ## The Results  
@@ -121,12 +129,13 @@ Didn't end up using in final models
 </select>-->
   
 ## Image classification is hard  
+
 Cat-Monkey and Bird-Plane  
 ![these images look similar for different objects](../images/catmonkey_birdplane.png)  
 Some images are just odd. A couple of these made me take a second look at their assigned labels. Can you classify them? (results on hover)  
 ![odd images](../images/oddimages.png "monkey, airplane, dog, cat, car, monkey, truck, truck")  
-My results aren't actually that bad. The best models are over three times better than guessing, and, according to [this website](http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html), I happened to pick a fairly difficult dataset. I also didn't get time to address the unlabeled images, which is where this dataset really excels. I guess I'll just have to experiment with deep learning next time!
-[papers from the STL-10](../images/stl10pub.png)  
+My results aren't actually that bad. The best models are over three times better than guessing, and, according to [this website](http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html), I happened to pick a fairly difficult dataset. I also didn't get time to address the unlabeled images, which is where this dataset really excels. I guess I'll just have to experiment with deep learning next time!  
+![papers from the STL-10](../images/stl10pub.png)  
 
 
 
