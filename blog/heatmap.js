@@ -17,6 +17,11 @@ function heatmap_display(url, heatmapId, paletteName, model) {
         .style("position", "absolute")
         .style("visibility", "hidden");
     */
+     var tooltip = d3.select('body').append('div')
+        .style('position', 'absolute')
+        .style('padding', '0 10 px')
+        .style('background', 'white')
+        .style('opacity', 0)
     //==================================================
     //var paddingheight = 0;//150;
     //var paddingwidth = 0;// 100;
@@ -163,12 +168,6 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 	        return d.idx;
 	    })
 	    .attr("class", "row");
-
-    var tooltip = d3.select('body').append('div')
-        .style('position', 'absolute')
-        .style('padding', '0 10 px')
-        .style('background', 'white')
-        .style('opacity', 0)
         
 	var j = 0;
 	var heatMap = row.selectAll(".cell")
