@@ -493,7 +493,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 	    { 
 		count += accuracies[i]; 
 	    }
-	    return (count/numbercells).toFixed(4);
+	    return (count/numbercells).toFixed(3);
 	}
 	    
         //==================================================
