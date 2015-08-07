@@ -41,6 +41,7 @@ $(document).ready(function() {
 
 Color is not generally a useful feature for object classification, so convert all images to grayscale.  
 ![same images now in grayscale](../images/all_classes_gray.png)
+
 ###  Features  
 
 ####  Harris Corners
