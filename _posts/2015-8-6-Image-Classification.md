@@ -3,7 +3,7 @@ layout: page
 title:  "It's a Bird, It's a Plane!"
 subheadline:  "Introduction to image classification"
 author: Trisha
-teaser: "Experiments with SIFT features and d3 from TopDoge Industries"
+#teaser: "Experiments with SIFT features and d3"
 ---
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -26,7 +26,9 @@ $(document).ready(function() {
 
 <body>-->
 ![topdoge logo](../images/topdoge.png)  
+
 ## The Data  
+
 - Stanford [STL-10 dataset](http://cs.stanford.edu/~acoates/stl10/)
 - 10 classes: airplane, bird, car, cat, deer, dog, horse, monkey, ship, truck
 - 96x96 px, 3 channel RGB images
