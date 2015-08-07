@@ -70,7 +70,7 @@ Didn't end up using in final models
 
 Cluster features with K Means, compute feature occurrence histograms, and feed those to the models for train/test.  
 
-## The Results  
+## The Results (confusion matrix)  
 <div id="heatmap"></div>
 <table style="height:60px; width:80%; text-align: center; align: center">
   <tr>
