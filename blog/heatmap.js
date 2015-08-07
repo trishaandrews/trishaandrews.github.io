@@ -17,11 +17,11 @@ function heatmap_display(url, heatmapId, paletteName, model) {
         .style("position", "absolute")
         .style("visibility", "hidden");
     */
-     var tooltip = d3.select('body').append('div')
+     var tooltip = d3.select(heatmapId).append('div')
         .style('position', 'absolute')
         .style('padding', '0 10 px')
         .style('background', 'white')
-        .style('opacity', 0)
+        .style('opacity', 0);
     //==================================================
     //var paddingheight = 0;//150;
     //var paddingwidth = 0;// 100;
