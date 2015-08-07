@@ -62,6 +62,8 @@ Didn't end up using in final models
 
 ![same images with sift features](../images/all_classes_sift.png)  
 
+Cluster features with K Means, compute feature occurrence histograms, and feed those to the models for train/test.  
+
 ## The Results  
 <div id="heatmap"></div>
 <table style="height:60px; width:80%; text-align: center; align: center">
