@@ -144,3 +144,16 @@ img.lazy {
     transition: opacity 0.7s;
     opacity: 1;
 }
+
+/*image hover?
+----------------------------------*/
+.selector:hover img {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -webkit-transition: transform .3s ease-out;
+    -moz-transition: transform .3s ease-out;
+    transition: transform .3s ease-out;
+}
