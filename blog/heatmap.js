@@ -12,16 +12,16 @@ function heatmap_display(url, heatmapId, paletteName, model) {
     // http://bl.ocks.org/mbostock/5577023
 
     //==================================================
-    /*var tooltip = d3.select(heatmapId)
+    var tooltip = d3.select(heatmapId)
         .append("div")
         .style("position", "absolute")
         .style("visibility", "hidden");
-    */
-     var tooltip = d3.select(heatmapId).append('div')
+    
+     /*var tooltip = d3.select('body').append('div')
         .style('position', 'absolute')
         .style('padding', '0 10 px')
         .style('background', 'white')
-        .style('opacity', 0);
+        .style('opacity', 0);*/
     //==================================================
     //var paddingheight = 0;//150;
     //var paddingwidth = 0;// 100;
@@ -219,11 +219,11 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 d3.select('#rowLabel_' + j).classed("hover", false);
                 tooltip.style("visibility", "hidden");
             })/*
-            .on("mousemove", function(d, i, j) {
+            .on("mousemove", function(d) {
 		    console.log(d3.event.pageX)
                 tooltip.style("top", (d3.event.pageY - (55+7*cellSize)) + "px").style("left", (d3.event.pageX - (60+7*cellSize)-(cellSize/2)) + "px");//-55 -60
             })*//*
-            .on("mousemove", function(d, i, j) {
+            .on("mousemove", function(d) {
                 //tooltip.style("top",  (j*cellSize) +"px").style("left",  (i*cellSize + (cellSize/2)) + "px"); //- 340
                  coordinates = d3.mouse(this);
                  var x = coordinates[0];
@@ -231,9 +231,10 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                  tooltip.style("top",  (y+1530) +"px").style("left",  (x+60) +"px");
             })*/
             .on("mousemove", function(d) {
-                tooltip.html(d)
-                .style('left', (d3.event.pageX - 35) + 'px')
-                .style('top', (d3.event.pageY - 30) + 'px')
+                //tooltip.html(d)
+                 
+                tooltip.style('left', (d3.event.pageX - 35) + 'px')
+                .style('top', (d3.event.pageY - 30) + 'px');
             })
             .on('click', function() {
                 changeOrder(heatmapId, antime);
