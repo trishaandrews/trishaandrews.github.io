@@ -231,11 +231,11 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                  var y = coordinates[1];
                  tooltip.style("top",  (y+1530) +"px").style("left",  (x+60) +"px");
             })*/
-            .on("mousemove", function(d)) {
+            .on("mousemove", function(d) {
                 tooltip.html(d)
                 .style('left', (d3.event.pageX - 35) + 'px')
                 .style('top', (d3.event.pageY - 30) + 'px')
-            }
+            })
             .on('click', function() {
                 changeOrder(heatmapId, antime);
             });
