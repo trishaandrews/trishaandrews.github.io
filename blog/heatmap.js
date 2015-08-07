@@ -12,11 +12,11 @@ function heatmap_display(url, heatmapId, paletteName, model) {
     // http://bl.ocks.org/mbostock/5577023
 
     //==================================================
-    var tooltip = d3.select(heatmapId)
+    /*var tooltip = d3.select(heatmapId)
         .append("div")
         .style("position", "absolute")
         .style("visibility", "hidden");
-
+    */
     //==================================================
     //var paddingheight = 0;//150;
     //var paddingwidth = 0;// 100;
@@ -164,6 +164,12 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 	    })
 	    .attr("class", "row");
 
+    var tooltip = d3.select('body').append('div')
+        .style('position', 'absolute')
+        .style('padding', '0 10 px')
+        .style('background', 'white')
+        .style('opacity', 0)
+        
 	var j = 0;
 	var heatMap = row.selectAll(".cell")
 	    .data(function(d) {
@@ -217,14 +223,19 @@ function heatmap_display(url, heatmapId, paletteName, model) {
             .on("mousemove", function(d, i, j) {
 		    console.log(d3.event.pageX)
                 tooltip.style("top", (d3.event.pageY - (55+7*cellSize)) + "px").style("left", (d3.event.pageX - (60+7*cellSize)-(cellSize/2)) + "px");//-55 -60
-            })*/
+            })*//*
             .on("mousemove", function(d, i, j) {
                 //tooltip.style("top",  (j*cellSize) +"px").style("left",  (i*cellSize + (cellSize/2)) + "px"); //- 340
                  coordinates = d3.mouse(this);
                  var x = coordinates[0];
                  var y = coordinates[1];
-                 tooltip.style("top",  (y+1550) +"px").style("left",  (x+60) +"px");
-            })
+                 tooltip.style("top",  (y+1530) +"px").style("left",  (x+60) +"px");
+            })*/
+            .on("mousemove", function(d)) {
+                tooltip.html(d)
+                .style('left', (d3.event.pageX - 35) + 'px')
+                .style('top', (d3.event.pageY - 30) + 'px')
+            }
             .on('click', function() {
                 changeOrder(heatmapId, antime);
             });
