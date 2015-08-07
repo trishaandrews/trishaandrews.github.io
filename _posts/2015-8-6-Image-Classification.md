@@ -3,7 +3,7 @@ layout: page
 title:  "It's a Bird, It's a Plane!"
 subheadline:  "Introduction to image classification"
 author: Trisha
-teaser: "Experiments with SIFT features and d3."
+teaser: "Experiments with SIFT features and d3 from TopDoge Industries ![topdoge logo](../images/topdoge.png)."
 ---
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -141,7 +141,10 @@ Cat-Monkey and Bird-Plane
 ![these images look similar for different objects](../images/catmonkey_birdplane.png)  
 Some images are just odd. A couple of these made me take a second look at their assigned labels. Can you classify them? (results on hover)  
 ![odd images](../images/oddimages.png "monkey, airplane, dog, cat, car, monkey, truck, truck")  
-My results aren't actually that bad. The best models are over three times better than guessing, and, according to [this website](http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html), I happened to pick a fairly difficult dataset. I also didn't get time to address the unlabeled images, which is where this dataset really excels. I guess I'll just have to experiment with deep learning next time!  
+
+**Results and Other Research**  
+
+My best models are over three times better than guessing, and, according to [this website](http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html), I happened to pick a fairly difficult dataset. I also didn't get time to address the unlabeled images, which is where this dataset really excels. I guess I'll just have to experiment with deep learning next time!  
 ![papers from the STL-10](../images/stl10pub.png)  
 
 
