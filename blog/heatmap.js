@@ -197,7 +197,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 	    .attr("height", cellSize)
 	    .style("fill", function(d, i, j) {
 		if ( i == j) {
-		    acc = d/10;
+		    acc = d;
 		    if (acc != null){
 			accuracies.push(acc);
 		    }
@@ -466,7 +466,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 		    })
 		    .style("fill", function(d, i, j) {
 			if ( i == j) {
-			    acc = d/10;
+			    acc = d;
 			    if (acc != null){
 				accuracies.push(acc);
 			    }
