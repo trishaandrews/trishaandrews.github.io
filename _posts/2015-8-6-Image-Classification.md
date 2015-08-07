@@ -25,7 +25,7 @@ $(document).ready(function() {
 <!--</head>
 
 <body>-->
-![topdoge logo](../images/topdoge.png)."  
+![topdoge logo](../images/topdoge.png)  
 ## The Data  
 - Stanford [STL-10 dataset](http://cs.stanford.edu/~acoates/stl10/)
 - 10 classes: airplane, bird, car, cat, deer, dog, horse, monkey, ship, truck
