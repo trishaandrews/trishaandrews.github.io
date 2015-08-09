@@ -1,8 +1,13 @@
-<script language="Javascript" type="text/javascript">
-  function google_search()
-  {
-    var query = document.getElementById("google-search").value;
-    window.open("http://google.com/search?q=" + query
-  + "%20site:" + "{{ site.url }}");
-  }
+<script>
+  (function() {
+    var cx = '000409048413462909027:of-rp0eev_q';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
 </script>
+<gcse:search></gcse:search>
