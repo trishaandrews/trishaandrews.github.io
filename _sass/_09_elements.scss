@@ -148,7 +148,7 @@ img.lazy {
 /*image hover?
 ----------------------------------*/
 .zoom-img:hover {
-    /*-webkit-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
@@ -156,13 +156,13 @@ img.lazy {
     -webkit-transition: transform .3s ease-out;
     -moz-transition: transform .3s ease-out;
     transition: transform .3s ease-out;    top:-25px;
-    left:-35px;
-    .thumbnail:hover {*/
-    position:absolute;
+    left:-35px;/*
+    .thumbnail:hover {
+    position:relative;
 
     width:700;
     height:auto;
     display:block;
-    z-index:999;
+    z-index:999;*/
 }
-//}
+
