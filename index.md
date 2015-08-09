@@ -8,7 +8,7 @@
 
 layout: frontpage
 header:
-    image_fullwidth: purplestretch.jpg
+    image_fullwidth: greystretch.jpg
     caption: "photo credit: Alan Levine"
     caption_url: https://commons.wikimedia.org/wiki/File:Piano_strings_6.jpg
 widget-1:
