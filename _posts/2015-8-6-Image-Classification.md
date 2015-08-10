@@ -58,9 +58,9 @@ Color is not generally a useful feature for object classification, so convert al
 - Sensitive to noise/patterns  
 
 Didn't end up using in final models  
-<!--<img class="zoom-img" src="../images/all_classes_harris.png" alt="same images with harris features">  -->
-![same images with harris features](../images/all_classes_harris.png)  
-
+<img class="zoom-img" src="../images/all_classes_harris.png" alt="same images with harris features">  
+<!--![same images with harris features](../images/all_classes_harris.png)  
+-->
 **SIFT (Scale-Invariant Feature Transform)**
 
 - Proprietary ([David Lowe](https://en.wikipedia.org/wiki/David_G._Lowe), 1999/2004)  
@@ -70,14 +70,17 @@ Didn't end up using in final models
 <img class="zoom-img" src="../images/all_classes_sift.png" alt="same images with sift features">
 <!--![same images with sift features](../images/all_classes_sift.png)  -->
 
-Cluster features with K Means, compute feature occurrence histograms, and feed those to the models for train/test.  
+Cluster features with k-means, compute feature occurrence histograms, and feed those to the models for train/test.  
 
 ## The Results (confusion matrix)  
+
+<iframe src="../d3/imageclassif1/index.html" width="650" height="750" style="border:none" scrolling="no"></iframe>
+<!--
 <div id="heatmap"></div>
 <table style="height:60px; width:80%; text-align: center; align: center">
   <tr>
     <td>
-    <table ><!--style="width:30%;">-->
+    <table >
         <tr>
          <p>
             <label for="lim" 
@@ -110,7 +113,7 @@ Cluster features with K Means, compute feature occurrence histograms, and feed t
     <option value="logreg">Logistic Regression</option>
     <option value="rf">Random Forrest</option>
     <option value="tree">Decision Tree</option>
-    </select>-->
+    </select> --
     </tr>
     <tr>
     <p>
@@ -125,20 +128,7 @@ Cluster features with K Means, compute feature occurrence histograms, and feed t
     </td>
   </tr>
 </table>
-
-<!--Palette:
-<select id="palette">
-  <option value="BuPu">BuPu</option>
-  <option value="RdPu">RdPu</option>
-  <option value="PuRd" selected>PuRd</option>
- <option value="RdGy">RdGy</option>
-  <option value="PuBu">RdBu</option>
-  <option value="PiYG">PiYG</option>
-  <option value="PRGn">PRGn</option>
-  <option value="BrBG">BrBG</option>
-  <option value="PuOr">PuOr</option> 
-</select>-->
-  
+  -->
 ## Image classification is hard  
 
 Cat-Monkey and Bird-Plane  
