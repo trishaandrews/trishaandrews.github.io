@@ -5,7 +5,7 @@ subheadline:  "Introduction to image classification"
 author: Trisha
 #teaser: "Experiments with SIFT features and d3"
 ---
-
+<!--
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -14,7 +14,7 @@ author: Trisha
 <script src="../blog/heatmap.js"></script>
 <link rel="stylesheet" href="../blog/heatmap.css" />
 
-<!--<head>-->
+
 
 <script>
 $(document).ready(function() {
