@@ -25,6 +25,7 @@ $(document).ready(function() {
 <!--</head>
 
 <body>-->
+
 ![topdoge logo](../images/topdoge.png)  
 
 ## The Data  
@@ -129,6 +130,7 @@ Cluster features with k-means, compute feature occurrence histograms, and feed t
   </tr>
 </table>
   -->
+  
 ## Image classification is hard  
 
 Cat-Monkey and Bird-Plane  
