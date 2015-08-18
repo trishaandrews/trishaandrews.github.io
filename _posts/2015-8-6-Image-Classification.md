@@ -60,6 +60,7 @@ Since there can be a somewhat arbitrary number of features per image, it is nece
 ## The Results (confusion matrix)  
 
 This confusion matrix shows my classification results across different models, numbers of training images, and feature clusters. The rows are the actual image labels, the columns are the predicted labels, each cell shows the percent of images of that row label that were classified as a given column label. This means that the true positives (correct classifications) are along the diagonal and everything else is a misclassification.  
+
 <iframe src="../d3/imageclassif1/index.html" width="650" height="800" style="border:none" scrolling="no"></iframe>
 
 ## Image classification is hard  
