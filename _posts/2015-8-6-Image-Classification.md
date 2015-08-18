@@ -3,28 +3,8 @@ layout: page
 title:  "It's a Bird, It's a Plane!"
 subheadline:  "Introduction to image classification"
 author: Trisha
-#teaser: "Experiments with SIFT features and d3"
+teaser: "For this project, I got to explore the process of object recognition for image classification, including feature extractions and visualizing my results with D3.js"
 ---
-<!--
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/colorbrewer.v1.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="http://d3js.org/queue.v1.min.js"></script>
-
-<script src="../blog/heatmap.js"></script>
-<link rel="stylesheet" href="../blog/heatmap.css" />
-
-
-
-<script>
-$(document).ready(function() {
-	heatmap_display("../blog/heatmaps/linsvc_lim=500_k=300.json", "#heatmap", "PuRd", 'linsvc');
-});
-</script>
-
-<!--</head>
-
-<body>-->
 
 ![topdoge logo](../images/topdoge.png)  
 
@@ -36,104 +16,56 @@ $(document).ready(function() {
 - 500 training images, 800 test images per class
 - 100000 unlabeled images for unsupervised learning  
 
-![Sample image from each class](../images/all_classes_color.png)
+<!--![Sample image from each class](../images/all_classes_color.png)-->
+<img class="zoom-img" src="../images/all_classes_color.png" alt="sample images from each class">  
 
 ## The Process  
 
 ###  Grayscale
 
-Color is not generally a useful feature for object classification, so convert all images to grayscale.  
-![same images now in grayscale](../images/all_classes_gray.png)
+Color is not generally a useful feature for object classification. This is because objects often have a more consistent shape than color, and it is likely that the training data will not contain a full sampling of colors. So, the first step is to convert all images to grayscale.  
+<!--![same images now in grayscale](../images/all_classes_gray.png)-->  
+<img class="zoom-img" src="../images/all_classes_gray.png" alt="same images now in grayscale">  
 
 ###  Features  
+
+Next, images often contain too much unnecessary visual complexity, so feeding the raw pixels into classifying models rarely produces ideal results, especially in the types of models I'm working with on this project. (Things might be different if I were using certain types of neural networks)  
 
 **Harris Corners**
 
 **Pros:**  
 
-- Easy to understand
-- Somewhat customizable  
+- Easy to understand (they're corners, as in where two edges meet)  
+- Somewhat customizable (you can set a threshold to determine roughly how many corners you detect in a given image)  
 
 **Cons:**  
 
-- Sensitive to noise/patterns  
+- Sensitive to noise/patterns (notice the chain link fence behind the cat in the fourth image)  
 
-Didn't end up using in final models  
+I ultimately decided against using these for my final models  
 <img class="zoom-img" src="../images/all_classes_harris.png" alt="same images with harris features">  
-<!--![same images with harris features](../images/all_classes_harris.png)  
--->
+
 **SIFT (Scale-Invariant Feature Transform)**
 
 - Proprietary ([David Lowe](https://en.wikipedia.org/wiki/David_G._Lowe), 1999/2004)  
-- Confusing (Difference of Gaussians to generate feature vectors in 128 dimensional space)  
-- Works well  
+- More confusing than corners (Difference of Gaussians to generate feature vectors in 128 dimensional space)  
+- Work well. Sift features are often good at handling identification of objects even when they are partially obscured or viewed from strange angles.   
 
+SIFT features are what I decided to work with for this project, though I also just wanted to gain experience working with them, since they are known to work well and are used in industry.  
 <img class="zoom-img" src="../images/all_classes_sift.png" alt="same images with sift features">
 <!--![same images with sift features](../images/all_classes_sift.png)  -->
 
-Cluster features with k-means, compute feature occurrence histograms, and feed those to the models for train/test.  
+Since there can be a somewhat arbitrary number of features per image, it is necessary to do further processing in order to get to data that can be fed to a model. I clustered the features with k-means clustering over a variety of ks (number of clusters) and training images, since I wasn't sure of the ideal number of clusters. I then computed feature occurrence histograms by calculating the frequency with which specific features were assigned to given clusters. These histograms were then fed to a series of models for training and testing. Ideally, I would have used k nearest neighbors as a model as well, but it was taking too long to train and test.  
 
 ## The Results (confusion matrix)  
 
-<iframe src="../d3/imageclassif1/index.html" width="650" height="750" style="border:none" scrolling="no"></iframe>
-<!--
-<div id="heatmap"></div>
-<table style="height:60px; width:80%; text-align: center; align: center">
-  <tr>
-    <td>
-    <table >
-        <tr>
-         <p>
-            <label for="lim" 
-                style="display: inline-block; text-align: center">
-            Training Images:<span id="lim-value"></span>
-            </label>
-            <input type="range" min="1" max="510" id="lim" value="500">
-        </p>
-        </tr>
-        <tr>
-         <p>
-            <label for="k" 
-                style="display: inline-block; text-align: center">
-            Feature Centers:<span id="k-value"></span>
-            </label>
-            <input type="range" min="1" max="310" id="k" value="300">
-        </p>
-        </tr>
-    </table>
-    </td>
-    <td>
-    <table>
-    <tr><!--
-    Model:
-    <select id="model">
-    <option value="nomodel">----</option>
-    <option value="mnb" selected>Multinomial Naive Bayes</option>
-    <option value="gnb">Gaussian Naive Bayes</option>
-    <option value="linsvc">Linear SVC</option>
-    <option value="logreg">Logistic Regression</option>
-    <option value="rf">Random Forrest</option>
-    <option value="tree">Decision Tree</option>
-    </select> --
-    </tr>
-    <tr>
-    <p>
-      <label for="mname" 
-         style="display: inline-block; text-align: center">
-         Model Slider:<span id="mname-value"></span>
-      </label>
-      <input type="range" min="1" max="600" id="mname" value="600">
-    </p>
-    </tr>
-    </table>
-    </td>
-  </tr>
-</table>
-  -->
-  
+This confusion matrix shows my classification results across different models, numbers of training images, and feature clusters. The rows are the actual image labels, the columns are the predicted labels, each cell shows the percent of images of that row label that were classified as a given column label. This means that the true positives (correct classifications) are along the diagonal and everything else is a misclassification.  
+<iframe src="../d3/imageclassif1/index.html" width="650" height="800" style="border:none" scrolling="no"></iframe>
+
 ## Image classification is hard  
 
-Cat-Monkey and Bird-Plane  
+The most difficult class in general seems to be birds, and they are often classified as airplanes. It's not too hard to think why this might be, but the confusion matrix for the Gaussian Naive Bayes model shows that sometimes cats and monkeys are classified as each other. This might seem more strange, until you look at some of the training images.  
+**Cat-Monkey and Bird-Plane:**  
 ![these images look similar for different objects](../images/catmonkey_birdplane.png)  
 Some images are just odd. A couple of these made me take a second look at their assigned labels. Can you classify them? (results on hover)  
 ![odd images](../images/oddimages.png "monkey, airplane, dog, cat, car, monkey, truck, truck")  
