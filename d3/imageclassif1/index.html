@@ -47,30 +47,16 @@ $(document).ready(function() {
         </tr>
     </table>
     </td>
-    <td>
-    <table>
-    <tr><!--
-    Model:
-    <select id="model">
-    <option value="nomodel">----</option>
-    <option value="mnb" selected>Multinomial Naive Bayes</option>
-    <option value="gnb">Gaussian Naive Bayes</option>
-    <option value="linsvc">Linear SVC</option>
-    <option value="logreg">Logistic Regression</option>
-    <option value="rf">Random Forrest</option>
-    <option value="tree">Decision Tree</option>
-    </select>-->
-    </tr>
-    <tr>
-    <p>
-      <label for="mname" 
-         style="display: inline-block; text-align: center">
-         Model Slider:<span id="mname-value"></span>
-      </label>
-      <input type="range" min="1" max="600" id="mname" value="600">
-    </p>
-    </tr>
-    </table>
+    <td style="text-align: left; align: left">
+      Model:
+      <form action="" id="model">
+        <input type="radio" name="mnradio" value="linsvc" checked>Linear SVC<br>
+        <input type="radio" name="mnradio" value="mnb">Multinomial Naive Bayes<br>
+        <input type="radio" name="mnradio" value="gnb">Gaussian Naive Bayes<br>
+        <input type="radio" name="mnradio" value="logreg">Logistic Regression<br>
+        <input type="radio" name="mnradio" value="rf">Random Forest<br>
+        <input type="radio" name="mnradio" value="tree">Decision Tree<br>
+      </form>
     </td>
   </tr>
 </table>

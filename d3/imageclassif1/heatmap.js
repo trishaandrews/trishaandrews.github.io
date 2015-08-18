@@ -218,18 +218,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                 d3.select('#colLabel_' + i).classed("hover", false);
                 d3.select('#rowLabel_' + j).classed("hover", false);
                 tooltip.style("visibility", "hidden");
-            })/*
-            .on("mousemove", function(d) {
-		    console.log(d3.event.pageX)
-                tooltip.style("top", (d3.event.pageY - (55+7*cellSize)) + "px").style("left", (d3.event.pageX - (60+7*cellSize)-(cellSize/2)) + "px");//-55 -60
-            })*//*
-            .on("mousemove", function(d) {
-                //tooltip.style("top",  (j*cellSize) +"px").style("left",  (i*cellSize + (cellSize/2)) + "px"); //- 340
-                 coordinates = d3.mouse(this);
-                 var x = coordinates[0];
-                 var y = coordinates[1];
-                 tooltip.style("top",  (y+1530) +"px").style("left",  (x+60) +"px");
-            })*/
+            })
             .on("mousemove", function(d) {
                 tooltip.style('left', (d3.event.pageX - 60) + 'px')
                 .style('top', (d3.event.pageY - 55) + 'px');
@@ -328,12 +317,12 @@ function heatmap_display(url, heatmapId, paletteName, model) {
         });
 
 	// read a change in model
-	d3.select("#mname").on("input", function() {
-	    newmodel = checknewmodel(this.value);
-	    model = newmodel
+	$("input[name=mnradio]:radio").change(function () {
+	    //console.log(this.value)
+	    newmodel = this.value
 	    update(newmodel, lim, k);
 	});
-
+	
 	function checknewness(newval, maxval) {
 	    //console.log(newval)
 	    if (newval < 75){
@@ -377,7 +366,7 @@ function heatmap_display(url, heatmapId, paletteName, model) {
 	    if (model == "tree"){
 		mname = "Decision Tree";
 	    }else if (model == "rf") {
-		mname = "Random Forrest";
+		mname = "Random Forest";
 	    }else if (model == "logreg") {
 		mname = "Logistic Regression";
 	    }else if (model == "linsvc") {
@@ -435,12 +424,6 @@ function heatmap_display(url, heatmapId, paletteName, model) {
                     });
             }
         }
-
-        //==================================================
-        d3.select("#model").on("change", function() {
-	    var newModel = d3.select("#model").property("value");
-	    update(newModel, lim, k);
-        });
 
 	//===================================================
 	function update (newmodel, newlim, newk){
