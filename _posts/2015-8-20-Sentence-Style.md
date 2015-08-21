@@ -6,11 +6,11 @@ author: Trisha
 teaser: "Predicting sentence author or topic of news articles from punctuation and stop words"
 ---
 
-People usually throw out punctuation and stop words such as "and", "the", "of", and "to" because these generally have little impact on topic and sentiment. However, these attributes can help define an author's writing style, so I attempted to predict the author of a sentence with only stop words and punctuation, without looking at any of the "content" words in that sentence. I also looked at whether multiple authors who consistently write on certain topics have similar writing styles as a whole than authors who consistently write on unrelated topics.  
+People usually throw out punctuation and stop words such as "and", "the", "of", and "to" because these generally have little impact on topic and sentiment. However, these attributes can help define an author's writing style, so I attempted to predict the author of a sentence with only stop words and punctuation, without looking at any of the "content" words in that sentence. I also looked at whether multiple authors who consistently write on certain topics have similar writing styles as a whole than authors of unrelated topics.  
+
 ![stop words wordcloud](../images/stopwords.png)  
 <!--image: https://xyclade.github.io/MachineLearning/-->
 
-## The Data  
 
 ![the guardian](../images/The_Guardian.png)  
 
@@ -33,17 +33,17 @@ People usually throw out punctuation and stop words such as "and", "the", "of", 
 <table>
 <tr>
 <td>
-Science sentences per author:  
-GrrlScientist 506  
-Ian Sample 501  
-Stuart Clark 464  
+Science sentences per author:<br>
+GrrlScientist 506<br>
+Ian Sample 501<br>
+Stuart Clark 464<br>
 </td>
 <td>
-Sentences per topic:  
-politics 3580  
-arts 2988  
-sports 3604  
-science 1471  
+Sentences per topic:<br>
+arts 2988<br>
+politics 3580<br>
+science 1471<br>
+sports 3604<br>
 </td>
 </tr>
 </table>
@@ -60,7 +60,7 @@ science 1471
 - Try all the models!
 - Multinomial Naive Bayes, Logistic Regression, Random Forest, and Linear Discriminant Analysis all had roughly the same performance
 - No improvement with thresholds for feature frequency or addition of adverbs
-- Results 13-30% better than a good guess
+- Results **13-30%** better than a good guess
 
 Bests:  
 All topics:  
@@ -84,18 +84,19 @@ Naive model (best guess) - accuracy: 23%
 Linear Discriminant Analysis - accuracy: 40%, minimum recall or precision: 25%  
 
 **Confusion matrix for the science authors:**  
-[confusion matrix science](../images/rf_science_heatmap.png)  
+![confusion matrix science](../images/rf_science_heatmap.png)  
 
 ### Clustering, 'cause reasons
 
 Why are some authors or topics easier to predict than others? Can we visualize the differences in sentence composition? What do these sentences actually look like?
 
 6 clusters for each topic, for simplicity and because the cluster number vs inertia curves leveled out at around 5 or 6 clusters for every topic.  
-[inertia curve](../images/cluster_inertias.png)  
+![inertia curve](../images/cluster_inertias.png)  
 
-**D3 clusters!**
+**D3 clusters!**  
 
 - see end of post for select cluster descriptions  
+
 <iframe src="../d3/guardian/index.html" width="650" height="800" style="border:none" scrolling="no"></iframe>
 
 ### Looking ahead
@@ -105,7 +106,7 @@ If you can predict authors from sentences somewhat accurately, perhaps you could
 
 ### Selected cluster descriptions
 
-All topics:  
+**All topics:**  
 cluster: 0, 3847 total sentences  
 Shortish (~22 token) sentences, high usage of commas, shortish average token length (~3.7 characters), high frequency of stop words such as "the" and "of" but none of "to", "and", or "in"  
 
@@ -124,7 +125,7 @@ Medium length (~35 token) sentences, long average token length (~4.5 characters)
 cluster: 5, 211 total sentences  
 Long (~95 token) sentences, low frequency of periods relative to other tokens and minimal usage of words such as "and" and "to". Average token length is less important, but long (~4.8 characters)  
 
-Science:  
+**Science:**  
 cluster: 0, 531 total sentences  
 Shortish (~22 token) sentences and shortish (~3.6 character) average token length. High use of stop words such as "the" and "of"  
 
