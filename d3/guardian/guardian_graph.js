@@ -1,6 +1,6 @@
 
 function Graph_authors(topic) {
-    var width = 700,
+    var width = 650,
         height = 500;
     
     var color = d3.scale.category20();

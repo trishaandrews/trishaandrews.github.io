@@ -11,6 +11,8 @@ People usually throw out punctuation and stop words such as "and", "the", "of", 
 ![stop words wordcloud](../images/stopwords.png)  
 <!--image: https://xyclade.github.io/MachineLearning/-->
 
+<br>
+<br>
 
 ![the guardian](../images/The_Guardian.png)  
 
@@ -97,7 +99,7 @@ Why are some authors or topics easier to predict than others? Can we visualize t
 
 - see end of post for select cluster descriptions  
 
-<iframe src="../d3/guardian/index.html" width="650" height="800" style="border:none" scrolling="no"></iframe>
+<iframe src="../d3/guardian/index.html" width="680" height="650" style="border:none" scrolling="no"></iframe>
 
 ### Looking ahead
 
