@@ -6,10 +6,12 @@ author: Trisha
 teaser: "Predicting sentence author or topic of news articles from punctuation and stop words"
 ---
 
-People usually throw out punctuation and stop words such as "and", "the", "of", and "to" because these generally have little impact on topic and sentiment. However, these attributes can help define an author's writing style, so I attempted to predict the author of a sentence with only stop words and punctuation, without looking at any of the "content" words in that sentence. I also looked at whether multiple authors who consistently write on certain topics have similar writing styles as a whole than authors of unrelated topics.  
-
 ![stop words wordcloud](../images/stopwords.png)  
 <!--image: https://xyclade.github.io/MachineLearning/-->
+
+People usually throw out punctuation and stop words such as "and", "the", "of", and "to" because these generally have little impact on topic and sentiment.  
+However, these attributes can help define an author's writing style, so I attempted to predict the author of a sentence with only stop words and punctuation, without looking at any of the "content" words in that sentence.  
+I also looked at whether multiple authors who consistently write on certain topics have similar writing styles as a whole than authors of unrelated topics.  
 
 <br>
 <br>
@@ -93,6 +95,7 @@ Linear Discriminant Analysis - accuracy: 40%, minimum recall or precision: 25%
 Why are some authors or topics easier to predict than others? Can we visualize the differences in sentence composition? What do these sentences actually look like?
 
 6 clusters for each topic, for simplicity and because the cluster number vs inertia curves leveled out at around 5 or 6 clusters for every topic.  
+
 ![inertia curve](../images/cluster_inertias.png)  
 
 **D3 clusters!**  
