@@ -26,7 +26,7 @@ The R Squared value for domestic vs foreign gross was even worse (a perfect pred
 
 <img class="zoom-img" src="../images/bomojo/domestic_widest_all.png" alt="DLG vs widest number of theaters">  
 
-I should probably note here that too few movies had budgets listed for me to make predictions.  
+I should probably note here that too few movies had budgets listed for me to make predictions based on that attribute.  
 
 What I was initially curious about was whether genre or country of origin had impacts on a movie's US gross, so let's start out with genre. Each movie had a genre listed, partially do to the fact that I had grabbed this list from bomojo's foreign language genre page. However, when I attempted to get a more accurate view of the data by setting any movies whose only genres were "foreign language" or "foreign" to "unknown", I had an unpleasant surprise -- over 700 of my 1500 movies were now of "unknown" genre.  
 
@@ -40,7 +40,7 @@ Also, from now on, I'm only going to talk about the number of wide opening theat
 
 I'm uncomfortable running regressions with less than 20 data points, but the action genre contains enough movies to play with. However, I unfortunately had to drop *Crouching Tiger* from these calculations since it was just too much of an outlier. Until this point it really hadn't made much of a difference. It turned out that this genre idea could possibly have some weight to it. For action movies, US gross was related to wide opening theaters with an R Square value of 0.64, and faired even better (~0.8) on most train-test splits (this probably means that there are other, more minor, outliers that throw things off when they are in the testing set).  
 
-<img class="zoom-img" src="../images/bomojo/domestic_wopenth_action_sad.png" alt="US gross of action movies per number of wide opening theaters">  
+<img class="zoom-img" src="../images/bomojo/domestic_wopen_action_sad.png" alt="US gross of action movies per number of wide opening theaters">  
 
 These results make me kind of happy, though it is somewhat disappointing that I don't have enough data to test other genres, so I can't really say if knowing the genre helps with predicting the US gross, though it certainly seems like it could be that way.  
 
