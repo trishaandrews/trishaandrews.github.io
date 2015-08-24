@@ -16,7 +16,5 @@ Prior to this summer, I was living in Colorado, where I had originally moved in 
 After my graduation in May 2014, I spent some time traveling, playing violin, and working with the [Bowed Piano Ensemble][1], which I have been a member of for four years. Now I'm looking forward to learning more about data science and pursuing a career where I get to generate insights by playing with numbers all day. If you want to chat, feel free to [message me][2] or check out any of the links at the bottom of the page.  
 
 
-The theme for this blog is based off of *Feeling Responsive* by <a href="http://phlow.de/">Phlow</a>.
-
  [1]: https://www.youtube.com/watch?v=JJJoUb4wOeU
  [2]: mailto:andrews.trisha.a@gmail.com

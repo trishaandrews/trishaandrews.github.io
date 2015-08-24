@@ -6,14 +6,14 @@
     <footer id="footer-content" class="bg-grau">
       <div id="subfooter">
         <nav class="row">
-          <section id="subfooter-right" class="small-12 medium-6 columns social-icons">
+          <section id="subfooter-left" class="small-12 medium-6 columns social-icons">
             <ul class="inline-list">
             {% for social_item in site.data.socialmedia %}
               <li><a href="{{ social_item.url }}" target="_blank" class="{{ social_item.class }}" title="{{ social_item.title }}"></a></li>
             {% endfor %}
             </ul>
           </section>
-          <p>© 2015 Trisha Andrews.  Powered by Jekyll using the Feeling Responsive Theme.</p>
+          <p>© 2015 Trisha Andrews.  Powered by <a href="http://jekyllrb.com/">Jekyll</a> using the <a href="https://phlow.github.io/feeling-responsive/">Feeling Responsive</a>theme.</p>
         </nav>
       </div><!-- /#subfooter -->
     </footer>
