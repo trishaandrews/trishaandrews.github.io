@@ -3,7 +3,7 @@ layout: page
 title:  "I Like Commas"
 subheadline:  "NLP and The Guardian"
 author: Trisha
-teaser: "Predicting sentence author or topic of news articles from punctuation and stop words"
+teaser: "Predicting author or topic of news article sentences from punctuation and stop words"
 ---
 
 ![stop words wordcloud](../images/stopwords.png)  
@@ -17,6 +17,8 @@ teaser: "Predicting sentence author or topic of news articles from punctuation a
 <br>
 
 ![the guardian](../images/The_Guardian.png)  
+
+**Data**  
 
 - Articles from [The Guardian API](http://open-platform.theguardian.com/)
 - API gives access to full article text. Most other news sites only provide short summaries or the first paragraph.
@@ -77,7 +79,7 @@ Linear Discriminant Analysis - accuracy: 54%, minimum recall or precision: 0.25%
 Naive model (best guess) - accuracy: 36%  
          
 Politics:  
-Multinomial Naive Bayes - accuracy: 32%, minimum recall or precision: 23%
+Multinomial Naive Bayes - accuracy: 32%, minimum recall or precision: 23%  
 Naive model (best guess) - accuracy: 19%  
 
 Science:  
