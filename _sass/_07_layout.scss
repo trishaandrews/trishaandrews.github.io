@@ -79,10 +79,10 @@ body.video cite { color: #fff; }
     text-shadow: 0 2px 3px rgba(0,0,0,.4);
 }
 #masthead-no-image-header {
-    height: 200px;
+    height: 180px;
 }
 #masthead-no-image-header #logo img {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 /* Masthead › small-only
@@ -94,7 +94,7 @@ body.video cite { color: #fff; }
         margin-top: 5px;
     }
     #masthead {
-        height: 180px;
+        height: 150px;
     }
     #masthead-with-pattern {
         padding: 15px 0;
@@ -118,10 +118,10 @@ body.video cite { color: #fff; }
 
 @media #{$medium-only} {
     #logo img {
-        margin-top: 40px;
+        margin-top: 20px;
     }
     #masthead {
-        height: 200px;
+        height: 180px;
     }
     #masthead-with-pattern {
         padding: 20px 0;
@@ -131,7 +131,7 @@ body.video cite { color: #fff; }
     }
     #masthead-with-text {
         padding: 30px 0;
-        height: 220px;
+        height: 200px;
     }
 }
 
@@ -141,10 +141,10 @@ body.video cite { color: #fff; }
 
 @media #{$large-only} {
     #logo img {
-        margin-top: 40px;
+        margin-top: 20px;
     }
     #masthead {
-        height: 200px;
+        height: 180px;
     }
     #masthead-with-pattern {
         padding: 30px 0;
@@ -153,7 +153,7 @@ body.video cite { color: #fff; }
         padding: 30px 0;
     }
     #masthead-with-text {
-        height: 220px;
+        height: 200px;
         padding: 30px 0;
     }
 }
@@ -167,7 +167,7 @@ body.video cite { color: #fff; }
         margin-top: 40px;
     }
     #masthead {
-        height: 240px;
+        height: 220px;
     }
     #masthead-with-pattern {
         padding: 45px 0;
@@ -177,7 +177,7 @@ body.video cite { color: #fff; }
     }
     #masthead-with-text {
         padding: 40px 0;
-        height: 240px;
+        height: 220px;
     }
 }
 
