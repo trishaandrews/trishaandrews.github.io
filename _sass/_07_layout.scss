@@ -90,10 +90,11 @@ body.video cite { color: #fff; }
 
 @media #{$small-only} {
     #logo img {
-        display: none;
+        //display: none;
+        margin-top: 5px;
     }
     #masthead {
-        height: 200px;
+        height: 180px;
     }
     #masthead-with-pattern {
         padding: 15px 0;
