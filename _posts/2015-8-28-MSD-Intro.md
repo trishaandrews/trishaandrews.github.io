@@ -35,6 +35,7 @@ This project involves multiple parts, so hopeful I'll be able to get something d
 **_Optional but much cooler part 2:_**  
 
 - Get user data from [Last.fm](http://www.last.fm/home), since their listening data comes with timestamps, and see if users generally listen to songs from certain groupings at certain times of day (and/or days of the week). For example, pump-up type music in the mornings, relaxing in the afternoon, and dance at night, or something like that.  
+
 *This part is something I really want to do. I'm calling it optional mostly due to the fact that Last.fm is currently transitioning their site and the process of applying for API keys is down, and has been down for over a week. It would probably take much more time to get that data through web scraping, so I'm not sure if it will be feasible given the length of this project*
 
 ###Part 3:
@@ -53,6 +54,8 @@ Also, since the data is in a variety of scales (0-1 for many, duration in second
 
 It would also be possible to do some much more complicated rhythmic analysis by looking at their tatums and bars and such, but I'm going to leave that alone for now.   
 
+Another thing that would be interesting but is probably beyond what I can do with my current time frame is to use/calculate a specialized distance metric for keys or pitches based on how they actually relate to each other in the musical system.   
+
 ![Circle of Fifths](../images/circle-of-fifths.jpg)  
 
-Another thing that would be interesting but is probably beyond what I can do with my current time frame is to use/calculate a specialized distance metric for keys or pitches based on how they actually relate to each other in the musical system. For example, I'm currently going to treat key designations as categorical variables while trying to capture some musical intricacies with simply the average pitch clarities, but it would make more sense to have keys treated as numerical values and use a distance metric where a certain key would measure as close to maybe the neighboring keys along the circle of fifths and perhaps its relative minor.  
+For example, I'm currently going to treat key designations as categorical variables while trying to capture some musical intricacies with simply the average pitch clarities, but it would make more sense to have keys treated as numerical values and use a distance metric where a certain key would measure as close to maybe the neighboring keys along the circle of fifths and perhaps its relative minor.  
