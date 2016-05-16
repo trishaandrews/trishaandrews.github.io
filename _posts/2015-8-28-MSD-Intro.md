@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  "What To Listen To (Part I)"
+title:  "What To Listen To (Part I: Basic Intro)"
 subheadline:  "First looks at the Million Song Dataset"
 author: Trisha
 teaser: "For my final project at Metis, I'm looking at the Million Song Dataset in order to build a music explorer / recommendation engine based on song clusters by low-level sound features"
@@ -8,7 +8,7 @@ teaser: "For my final project at Metis, I'm looking at the Million Song Dataset 
 
 ![Million Song Logo](../images/millionsong.jpg)  
 
-It's time for my final project at Metis, and this time I'm going to try writing some thoughts on my project while I'm still in the process of completing it. (Partially because several parts of this project take a somewhat long time to run.) This week I mostly just came up with my idea and began exploring my first(?) data set, the [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/).  
+It's time for my final project at Metis, and this time I'm going to try writing some thoughts on my project while I'm still in the process of completing it. (This is partially because several parts of this project take a somewhat long time to run.) This week I mostly just came up with my idea and began exploring my first(?) data set, the [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/).  
 
 ##Some background  
 
@@ -50,7 +50,7 @@ This project involves multiple parts, so hopeful I'll be able to get something d
 
 This week, after I figured out what I actually wanted to work on, has been all Part 0. I'm getting my song data from the Million Song Dataset, though at the moment I'm only working with their subset of 10,000 songs. If I want to work with the whole thing I'll have to figure it out on [AWS](http://aws.amazon.com/datasets/6468931156960467) with [Spark](http://spark.apache.org/), probably. And, while it'd be awesome to get a better feel for all of that, I think I'd rather have something to show for each part of my project first.  
 
-Each track of the Million Song Dataset has a variety of features, but for my purposes, I'm only going to be looking at a few. First off, the simple features that are given by the data set of a track's duration, length of intro, tempo, energy, danceability, loudness, mode, key, time signature. Then, the MSD also breaks a song into segments and gives the pitch clarity (0-1) of each pitch (0-11, or -1 if not known) per segment. For now, I'm just going to take the mean, median, and mode of each pitch clarity across all segments, so I can get a standard length array, and still account for some of the pitch quality of the song. I'm also doing a similar thing for timbre, which comes in roughly the same format, and with the maximum loudness values per segment.  
+Each track of the Million Song Dataset has a variety of features, but for my purposes, I'm only going to be looking at a few. First off, the simple features that are given by the data set of a track's duration, length of intro, tempo, loudness, mode, key, time signature. Keys are represented as 0-11 for C,C#,...,B, or -1 if not known. Then, the MSD also breaks a song into segments and gives the pitch clarity (0-1) of each pitch per segment. For now, I'm just going to take the mean, median, and mode of each pitch clarity across all segments, so I can get a standard length array, and still account for some of the pitch quality of the song. I'm also doing a similar thing for timbre, which comes in roughly the same format, and with the maximum loudness values per segment.  
 
 Also, since the data is in a variety of scales (0-1 for many, duration in seconds, tempo in bpm, etc.), I'm standardizing everything by taking the [z-score](https://en.wikipedia.org/wiki/Standard_score) of each feature column and dummying out categorical variables like key.  
 

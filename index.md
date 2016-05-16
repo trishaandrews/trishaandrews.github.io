@@ -14,7 +14,7 @@ header:
 widget-1:
     title: "Data Science Blog"
     url: './blog/'
-    text: 'Read about my projects at Metis'
+    text: 'Read about my previous projects'
     image: notebook.jpg
 widget-2:
     title: "About Me"
